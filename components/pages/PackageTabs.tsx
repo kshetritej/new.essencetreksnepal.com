@@ -126,8 +126,9 @@ export default function PackageTabs() {
   return (
     <>
       <div
+        id="scrollbar-hide"
         ref={navRef}
-        className="flex  gap-2 mb-8 pb-4 border-b border-border overflow-x-scroll sticky top-0 bg-background z-10 pt-4"
+        className="flex  gap-2 mb-8 bg-background pb-4 border-b border-border overflow-x-scroll sticky top-0  z-10 pt-4"
       >
         {SECTIONS.map((section) => (
           <Button
@@ -138,7 +139,7 @@ export default function PackageTabs() {
               flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all
               ${
                 activeSection === section.id
-                  ? "bg-green-600 text-white shadow-sm hover:bg-green-700"
+                  ? "bg-primary text-white shadow-sm hover:bg-primary/70"
                   : "bg-muted text-muted-foreground hover:bg-muted/80 hover:text-foreground"
               }
             `}
