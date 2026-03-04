@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
         hostname: "api.summitluxurytreks.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "api.essencetreksnepal.com",
+        pathname: "/**",
+      },
     ],
   },
 };

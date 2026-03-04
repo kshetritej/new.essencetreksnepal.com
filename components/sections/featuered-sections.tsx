@@ -7,7 +7,6 @@ export default async function FeaturedSections() {
 
   const data = await res.json();
 
-  console.log("Data: ", data);
   const trips = data?.data;
 
   return (
