@@ -20,15 +20,14 @@ export function TripOverview({ trip }: TripOverviewProps) {
         <h1 className="text-2xl md:text-4xl font-extrabold text-slate-900 mb-4">
           {trip.title}
         </h1>
-        <div className="flex items-center gap-2">
+        {/*<div className="flex items-center gap-2">
           <span className="text-2xl">
             <LucideStar size={16} />
           </span>
-          <p className="text-sm">
-            Recommended by {trip?.ratings?.recommendedPercentage || "99"}% of
+          <p className="text-sm"> Recommended by {trip?.ratings?.recommendedPercentage || "99"}% of
             travelers
           </p>
-        </div>
+        </div>*/}
       </div>
 
       {/* AT A GLANCE Section */}
