@@ -19,6 +19,7 @@ export const siteConfig = {
     country: "Nepal",
     postalCode: "33700",
   },
+  fullAddress: "Khahare Chowk, Lakeside Rd, Pokhara, Kaski, Nepal, 33700",
   socials: {
     facebook: "https://www.facebook.com/essencetreksinnepal",
     instagram: "https://www.instagram.com/",

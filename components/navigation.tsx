@@ -50,11 +50,10 @@ function MegaMenu({ item }: { item: MenuItem }) {
   if (!hasChildren(item)) return null;
 
   return (
-    // The dropdown is shown/hidden purely with CSS group-hover — zero JS
-    <div className="absolute left-0 right-0 top-full w-screen max-w-full bg-white shadow-xl border-t border-gray-100 hidden group-hover:block z-50">
+    <div className="absolute left-0 right-0 top-full w-fit  bg-white shadow-xl border-t border-gray-100 hidden group-hover:block z-50">
       <div className="max-w-7xl mx-auto px-8 py-12">
         <h2 className="text-3xl font-bold text-gray-900 mb-8">{item.label}</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {item.children.map((child) => (
             <div key={child.id}>
               <div className="mb-4">
