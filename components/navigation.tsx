@@ -125,12 +125,12 @@ export async function Navigation() {
       {/* Top bar */}
       <div className="bg-gray-900 text-white px-4 md:px-8 py-3 flex flex-wrap justify-center md:justify-end items-center gap-4 md:gap-8 text-xs md:text-sm">
         <Link
-          href={siteConfig.phoneNumbers[0].phone!}
+          href={`tel:${siteConfig.phoneNumbers[0].phone!}`}
           className="flex items-center gap-2 hover:text-primary transition-colors"
         >
           <Phone size={16} />
           <span className="hidden sm:inline">
-            {`tel:${siteConfig.phoneNumbers[0].phone}`}
+            {siteConfig.phoneNumbers[0].phone}
           </span>
         </Link>
         <Link
