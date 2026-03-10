@@ -9,7 +9,7 @@ export default function CTA() {
         <p className="text-slate-300 mb-8">
           Let&apos;s create your next unforgettable journey together.
         </p>
-        <Link href={"/contact"}>
+        <Link href={"/contact#"}>
           <Button className="bg-primary/60 hover:bg-primary/70 text-white font-semibold px-8 py-3 rounded transition">
             Start Planning
           </Button>

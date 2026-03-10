@@ -6,6 +6,8 @@ export interface TripData {
   fullDescription: string;
   duration: string;
   price: number;
+  accommodations: string[];
+  maximumAltitude: string;
   difficultyLevel: "EASY" | "MODERATE" | "CHALLENGING" | "STRENUOUS";
   guestCapacity: number;
   meetingPoint: string;
@@ -32,12 +34,14 @@ export interface ItineraryDay {
   day: number;
   title: string;
   description: string;
-  altitude?: string;
+  ascent?: string;
+  descent?: string;
   duration?: string;
+  distance?: string;
   image?: string;
   highlights?: string[];
-  meals?: string;
-  accommodation?: string;
+  meals?: string[];
+  accommodations?: string[];
 }
 
 export interface FAQ {

@@ -13,7 +13,6 @@ import {
   Star,
   MessageCircle,
 } from "lucide-react";
-import type { PackageData } from "./package";
 
 type SectionId =
   | "overview"

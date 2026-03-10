@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 export default function HomeHero() {
   return (
@@ -24,7 +25,9 @@ export default function HomeHero() {
           </p>
 
           <div className="btn-group flex gap-4 items-center">
-            <Button variant={"secondary"}>Start Planning </Button>
+            <Link href="/contact">
+              <Button variant={"secondary"}>Start Planning </Button>
+            </Link>
             <Button> Book a Discovery Call</Button>
           </div>
         </div>

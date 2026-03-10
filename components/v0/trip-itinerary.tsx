@@ -6,6 +6,16 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../ui/accordion";
+import { Badge } from "../ui/badge";
+import {
+  LucideChevronDown,
+  LucideChevronUp,
+  LucideClock,
+  LucideHandPlatter,
+  LucideMinus,
+  LucideRulerDimensionLine,
+  LucideTent,
+} from "lucide-react";
 
 interface TripItineraryProps {
   trip: TripData;
@@ -16,7 +26,6 @@ export function TripItinerary({ trip }: TripItineraryProps) {
     <div className="space-y-8 max-w-4xl">
       <div className="space-y-4">
         <div
-          id="overview"
           className="mt-4"
           dangerouslySetInnerHTML={{
             __html: decodeHtmlEntities(trip.shortDescription),
@@ -33,26 +42,90 @@ export function TripItinerary({ trip }: TripItineraryProps) {
           }}
         />
         <div
-          id=""
+          id="intro"
           dangerouslySetInnerHTML={{
             __html: decodeHtmlEntities(trip.fullDescription),
           }}
         />
       </div>
       <div id="itinerary">
-        <h2 className="font-bold text-2xl my-4">Detailed Itinerary</h2>
+        <h2 className="font-bold text-2xl">Detailed Itinerary</h2>
         <Accordion type="single" collapsible defaultValue="1">
           <div className="flex flex-col gap-1 relative border-b">
             {trip.itinerary.map((day, index) => (
               <AccordionItem key={index} value={index.toString()}>
-                <AccordionTrigger className="rounded-none font-bold text-xl hover:no-underline cursor-pointer">
-                  {day.title}
+                <AccordionTrigger className="font-bold text-md p-0 flex items-center prose-h3:p-0 prose-h3:m-0 prose-h3:leading-0 hover:no-underline">
+                  <h3 className="flex items-center gap-4">
+                    <Badge>Day {index + 1}</Badge> {day.title}
+                  </h3>
                 </AccordionTrigger>
                 <AccordionContent className="text-base">
                   <div
                     className="text-base"
                     dangerouslySetInnerHTML={{ __html: day.description }}
                   />
+
+                  {(day?.duration ||
+                    (day?.accommodations && day.accommodations?.length > 0) ||
+                    day?.ascent ||
+                    day?.descent ||
+                    day?.distance ||
+                    (day?.meals && day.meals?.length > 0)) && (
+                    <div className="grid grid-cols-2 gap-1 bg-primary/20 p-2 rounded-sm space-y-1.5 my-4">
+                      {day?.duration && (
+                        <div className="flex gap-1 items-center">
+                          <LucideClock />{" "}
+                          <span className="font-medium">Duration:</span>
+                          {day.duration}
+                        </div>
+                      )}
+                      {day?.distance && (
+                        <div className="flex gap-1 items-center">
+                          <LucideRulerDimensionLine />{" "}
+                          <span className="font-medium">Distance:</span>
+                          {day.distance}
+                        </div>
+                      )}
+                      {day?.ascent && (
+                        <div className="flex gap-1 items-center">
+                          <LucideChevronUp />{" "}
+                          <span className="font-medium">Ascent:</span>
+                          {day.ascent}
+                        </div>
+                      )}
+                      {day?.descent && (
+                        <div className="flex gap-1 items-center">
+                          <LucideChevronDown />{" "}
+                          <span className="font-medium">Descent:</span>{" "}
+                          {day.descent}
+                        </div>
+                      )}
+                      {day.accommodations && day.accommodations?.length > 0 && (
+                        <div className="flex flex-col items-start gap-1">
+                          <div className="font-medium gap-1 flex items-center">
+                            <LucideTent />
+                            Accommodations:
+                          </div>
+                          <div className="flex gap-1">
+                            <LucideMinus />
+                            {day.accommodations.join(", ")}
+                          </div>
+                        </div>
+                      )}
+                      {day.meals && day.meals?.length > 0 && (
+                        <div className="flex flex-col items-start gap-1">
+                          <div className="font-medium gap-1 flex items-center">
+                            <LucideHandPlatter />
+                            Meals:
+                          </div>
+                          <div className="flex gap-1">
+                            <LucideMinus />
+                            {day.meals.join(", ")}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </AccordionContent>
               </AccordionItem>
             ))}

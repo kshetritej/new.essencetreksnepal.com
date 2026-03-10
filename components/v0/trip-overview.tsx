@@ -1,33 +1,40 @@
 import { TripData } from "@/app/types/trip-data";
-import Image from "next/image";
 import {
   LucideClock,
   LucideGauge,
-  LucideStar,
   LucideUsers,
   LucideMapPin,
   LucideIcon,
+  LucideMountain,
+  LucideTentTree,
+  LucideMap,
+  LucideStar,
 } from "lucide-react";
 import PricingCardSidebar from "../card/pricing-card";
+import { siteConfig } from "@/lib/siteConfig";
+import Link from "next/link";
 
 interface TripOverviewProps {
   trip: TripData;
 }
 export function TripOverview({ trip }: TripOverviewProps) {
   return (
-    <div className="space-y-8 mt-4">
+    <div id="overview" className="space-y-8 mt-4">
       <div>
         <h1 className="text-2xl md:text-4xl font-extrabold text-slate-900 mb-4">
           {trip.title}
         </h1>
-        {/*<div className="flex items-center gap-2">
-          <span className="text-2xl">
+        <div className="flex items-center gap-2">
+          <span className="text-2xl text-green-700">
             <LucideStar size={16} />
           </span>
-          <p className="text-sm"> Recommended by {trip?.ratings?.recommendedPercentage || "99"}% of
-            travelers
-          </p>
-        </div>*/}
+          <Link
+            href={siteConfig.reviews.tripadvisor.link}
+            className="text-sm text-green-700"
+          >
+            Rated {siteConfig.reviews.tripadvisor.rating}/5 in Tripadvisor
+          </Link>
+        </div>
       </div>
 
       {/* AT A GLANCE Section */}
@@ -59,6 +66,21 @@ export function TripOverview({ trip }: TripOverviewProps) {
             text="End"
             icon={LucideMapPin}
             value={trip.dropOffPoint ?? "-"}
+          />
+          <GlanceItem
+            text="Max Altitude"
+            icon={LucideMountain}
+            value={trip.maximumAltitude ?? "-"}
+          />
+          <GlanceItem
+            text="Accommodations"
+            icon={LucideTentTree}
+            value={trip.accommodations.join(", ") ?? "-"}
+          />
+          <GlanceItem
+            text="Locations"
+            icon={LucideMap}
+            value={trip.locations.join(", ") ?? "-"}
           />
         </div>
       </div>

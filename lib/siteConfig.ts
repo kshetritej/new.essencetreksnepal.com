@@ -33,4 +33,20 @@ export const siteConfig = {
     Identity_Card: "/documents/identity_card_for_trekking_guide.webp",
     Grading_Classification: "/documents/grading_classification.webp",
   },
+  reviews: {
+    googleReview: {
+      count: 0,
+      rating: 0,
+      link: "#",
+    },
+    tripadvisor: {
+      count: 0,
+      rating: 5,
+      link: "#",
+    },
+  },
+  gmb: {
+    link: "#",
+    location: "",
+  },
 };

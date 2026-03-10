@@ -10,8 +10,9 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Script from "next/script";
-import PackageTabs from "@/components/pages/PackageTabs";
-import { Accordion } from "@/components/ui/accordion";
+import { LucideImage } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { SectionNavigation } from "@/components/section-nav";
 
 export async function generateMetadata({
   params,
@@ -95,47 +96,51 @@ export default async function TripPage({
       {/*Images in Lightbox*/}
       {trip.images && trip.images.length > 0 && (
         <Lightbox images={trip.images}>
-          <div className="grid md:grid-cols-3 gap-2 container mx-auto">
-            <div className="rounded-3xl overflow-hidden col-span-2">
+          <div className="grid md:grid-cols-3 gap-2 container mx-auto relative">
+            <div className="rounded-sm overflow-hidden col-span-2">
               <Image
                 src={mainImage}
                 alt={trip.title}
                 height={1280}
                 width={1920}
-                className="w-full h-full object-cover rounded-3xl"
+                className="w-full h-full object-cover rounded-sm"
               />
             </div>
-            <div className="col-span-2 grid grid-cols-2 gap-2">
+            <div className="col-span-1 gap-2 hidden md:grid">
               {otherImages.map((imageUrl: string) => (
-                <div key={imageUrl} className="rounded-3xl overflow-hidden">
+                <div key={imageUrl} className="rounded-sm overflow-hidden">
                   <Image
                     alt={trip.title + "2"}
                     src={imageUrl}
                     height={1280}
                     width={1920}
-                    className="w-full h-60 object-cover rounded-3xl"
+                    className="w-full object-cover rounded-sm"
                   />
                 </div>
               ))}
             </div>
+            <Button className="absolute top-2 left-2" variant={"secondary"}>
+              <LucideImage /> {trip.images.length} Photos
+            </Button>
           </div>
         </Lightbox>
       )}
 
       {/*Content starts */}
       <div className="container mx-auto">
+        <SectionNavigation />
         <div className="grid md:grid-cols-4 gap-4 min-w-0">
           <div className="col-span-3 min-w-0!">
             <TripOverview trip={trip} />
-            <PackageTabs />
             <div
               className="col-span-2 min-w-0!
       prose-base leading leading-relaxed
       prose-headings:text-gray-900 prose-headings:font-bold
-      prose-h1:text-2xl
-      prose-h2:text-xl   prose-h2:font-bold
-      prose-h3:text-lg
-      prose-p:leading-relaxed prose-p:mb-4 prose-p:mt-0
+      prose-h1:text-3xl
+      prose-h2:text-2xl   prose-h2:font-bold
+      prose-h3:text-xl
+      prose-h4:text-lg
+      prose-p:leading-relaxed prose-p:mb-4 prose-p:mt-0 prose-p:text-xl
       prose-a:text-primary prose-a:no-underline hover:prose-a:text-primary hover:prose-a:underline
       prose-strong:text-black prose-strong:font-bold
       prose-ul:my-2 prose-ol:my-2
@@ -145,7 +150,7 @@ export default async function TripPage({
       prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm
       prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:rounded-lg prose-pre:p-4
       prose-ul:list-none
-      prose-li:relative prose-li:pl-8
+      prose-li:relative prose-li:pl-8 prose-li:text-xl
       prose-li:before:absolute
       prose-li:before:left-0
       prose-li:before:top-[0.45em]
@@ -183,17 +188,17 @@ export default async function TripPage({
                   <h2 id="trip-info" className="font-bold text-xl my-4">
                     Trip Information
                   </h2>
-                  <Accordion collapsible type="single" className="w-full! mb-8">
-                    {trip.additionalInfo.map((info: any, idx: any) => {
-                      return (
-                        <AdditionalInfoRenderer
-                          key={idx}
-                          index={idx}
-                          item={info}
-                        />
-                      );
-                    })}
-                  </Accordion>
+                  {/*<Accordion collapsible type="single" className="w-full! mb-8">*/}
+                  {trip.additionalInfo.map((info: any, idx: any) => {
+                    return (
+                      <AdditionalInfoRenderer
+                        key={idx}
+                        index={idx}
+                        item={info}
+                      />
+                    );
+                  })}
+                  {/*</Accordion>*/}
                 </>
               )}
               <div id="faqs">

@@ -18,23 +18,13 @@ export const AdditionalInfoRenderer = ({
   index: number;
 }) => {
   return (
-    // <Accordion type="single" collapsible className="w-full">
-    <AccordionItem
-      key={`item-${index}`}
-      value={`item-${index}`}
-      className="data-[state=open]:border-primary p-0"
-    >
-      <AccordionTrigger className="hover:no-underline font-bold text-left w-full! text-md">
-        <span>{item.title}</span>
-      </AccordionTrigger>
-      <AccordionContent className="p-2 text-base">
-        <div
-          dangerouslySetInnerHTML={{
-            __html: decodeHtmlEntities(item.description),
-          }}
-        />
-      </AccordionContent>
-    </AccordionItem>
-    // </Accordion>
+    <>
+      <h3>{item.title}</h3>
+      <div
+        dangerouslySetInnerHTML={{
+          __html: decodeHtmlEntities(item.description),
+        }}
+      />
+    </>
   );
 };
