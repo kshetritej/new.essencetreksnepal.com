@@ -1,5 +1,6 @@
 export const siteConfig = {
   name: "Essence Treks Nepal",
+  logo: "/essence-treks-logo.jpg",
   description: "Conquer the Roof of the World, One Step at a Time!",
   url: "https://essencetreksnepal.com",
   image: "/og.png",

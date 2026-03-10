@@ -1,14 +1,10 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/navigation";
 import Footer from "@/components/footer";
 import { Analytics } from "@vercel/analytics/next";
 import CTA from "@/components/cta";
-
-const outfit = Outfit({
-  subsets: ["latin"],
-});
+import { outfit } from "@/lib/font";
 
 export const metadata: Metadata = {
   title: "Essence Treks",
