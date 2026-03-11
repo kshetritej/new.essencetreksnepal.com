@@ -8,7 +8,6 @@ import BookingCard from "./BookingCard";
 import TripOverview from "./TripOverview";
 import Highlights from "./Highlights";
 import AtAGlanceTable from "./AtAGlanceTable";
-import FullItinerary from "./FullItinerary";
 import TripInformation from "./TripInformation";
 import Reviews from "./Reviews";
 import ExploreMore from "./ExploreMore";
@@ -99,7 +98,6 @@ export default function TrekDetailPage() {
               <TripOverview text={d.overview} />
               <Highlights items={d.highlights} />
               <AtAGlanceTable rows={d.atAGlance} />
-              <FullItinerary days={d.itinerary} />
               <TripInformation info={d.tripInformation} />
               <Reviews reviews={d.reviews} />
             </div>

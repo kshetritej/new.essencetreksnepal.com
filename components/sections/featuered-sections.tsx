@@ -8,11 +8,10 @@ export default async function FeaturedSections() {
   const data = await res.json();
 
   const featured = data?.data;
-  console.log("Featured: ", featured);
 
   return (
     <div className="relative flex flex-col gap-4  justify-center container mx-auto mt-12 p-2">
-      {featured.featuredTags.map((tag, index) => {
+      {featured.featuredTags.map((tag: any, index: number) => {
         return (
           <div key={index} className="space-y-4 min-h-[70vh]">
             <div className="text-3xl font-semibold"> {tag.name}</div>
