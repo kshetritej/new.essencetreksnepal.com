@@ -5,10 +5,14 @@ import Footer from "@/components/footer";
 import { Analytics } from "@vercel/analytics/next";
 import CTA from "@/components/cta";
 import { outfit } from "@/lib/font";
+import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
   title: "Essence Treks",
   description: "Created by Growfore Solution",
+  openGraph: {
+    siteName: siteConfig.name,
+  },
   robots: {
     index: false,
     follow: false,

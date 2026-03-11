@@ -43,6 +43,18 @@ export async function generateMetadata({
         },
       ],
     },
+    twitter: {
+      title: trip.seo.metaTitle,
+      description: trip.seo.metaDescription,
+      images: [
+        {
+          url: trip?.seo?.featuredMedia,
+          width: 800,
+          height: 600,
+          alt: trip?.seo?.metaTitle || "Limestone Treks",
+        },
+      ],
+    },
   };
 }
 
