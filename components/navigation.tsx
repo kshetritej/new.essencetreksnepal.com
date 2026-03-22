@@ -47,7 +47,7 @@ function MegaMenu({ item }: { item: MenuItem }) {
 
   return (
     <div className="absolute left-0 right-0 top-20 w-screen hidden group-hover:block z-50">
-      <div className="max-w-7xl mx-auto px-8 py-12 bg-amber-50 mt-5 rounded-b-xl">
+      <div className="max-w-7xl mx-auto px-8 py-12 bg-accent mt-5 rounded-b-xl">
         <div className="text-3xl font-bold text-gray-900 mb-8">
           {item.label}
         </div>

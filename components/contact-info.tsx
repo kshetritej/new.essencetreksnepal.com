@@ -52,12 +52,6 @@ const ContactInfo = () => {
             >
               info@essencetreks.com
             </a>
-            <a
-              href="mailto:bookings@essencetreks.com"
-              className="block  transition-colors"
-            >
-              bookings@essencetreks.com
-            </a>
           </div>
         </div>
 

@@ -1,7 +1,8 @@
 import { siteConfig } from "@/lib/siteConfig";
 import { LucideMail, LucideMapPin, LucidePhone } from "lucide-react";
 import Link from "next/link";
-import { CgFacebook, CgInstagram, CgTwitter, CgYoutube } from "react-icons/cg";
+import { url } from "node:inspector/promises";
+import { FaFacebook, FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa";
 
 export default async function Footer() {
   const res = await fetch(
@@ -19,6 +20,24 @@ export default async function Footer() {
   const json2 = await res2.json();
 
   const guides = json2.blogs;
+
+  const socials = [
+    {
+      name: "Facebook",
+      url: siteConfig.socials.facebook,
+      icon: <FaFacebook className="size-4 md:size-8" />,
+    },
+    {
+      name: "YouTube",
+      url: siteConfig.socials.youtube,
+      icon: <FaYoutube className="size-4 md:size-8" />,
+    },
+    {
+      name: "TikTok",
+      url: siteConfig.socials.tiktok,
+      icon: <FaTiktok className="size-4 md:size-8" />,
+    },
+  ];
 
   return (
     <div className="bg-black">
@@ -76,10 +95,13 @@ export default async function Footer() {
           <div>
             <div className="font-black text-lg">Find us on</div>
             <div className="flex gap-4 mt-4">
-              <CgFacebook className="size-4 md:size-8" />
-              <CgTwitter className="size-4 md:size-8" />
-              <CgInstagram className="size-4 md:size-8" />
-              <CgYoutube className="size-4 md:size-8" />
+              {socials.map((social, index) => {
+                return (
+                  <Link href={social.url} key={index}>
+                    {social.icon}
+                  </Link>
+                );
+              })}
             </div>
           </div>
           <div>
