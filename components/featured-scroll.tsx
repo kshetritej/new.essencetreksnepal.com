@@ -4,6 +4,7 @@ import TripCard from "./card/trip-card";
 import { Button } from "./ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function FeaturedScroll({ activities }: { activities: any[] }) {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -69,9 +70,11 @@ export default function FeaturedScroll({ activities }: { activities: any[] }) {
           </span>
           <ChevronRight className="group-hover:text-white" />
         </Button>
-        <Button className="w-32 rounded-full cursor-pointer h-12">
-          Explore all
-        </Button>
+        <Link href="/explore">
+          <Button className="w-32 rounded-full cursor-pointer h-12">
+            Explore all
+          </Button>
+        </Link>
       </div>
     </>
   );

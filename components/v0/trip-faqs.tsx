@@ -15,8 +15,8 @@ interface TripFaqsProps {
 export function TripFaqs({ trip }: TripFaqsProps) {
   return (
     <div className="max-w-4xl py-12">
-      <h2 className="font-bold -mt-1 flex gap-2 items-center">
-        <LucideCircleQuestionMark className="size-8 text-primary" /> Frequently
+      <h2 className="not-prose font-bold -mt-1 flex gap-2 items-center text-2xl md:text-3xl text-black">
+        <LucideCircleQuestionMark className="size-8 text-primary " /> Frequently
         Asked Questions
       </h2>
 

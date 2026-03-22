@@ -125,13 +125,13 @@ export async function Navigation() {
     <nav className="bg-black">
       {/* Top bar */}
       <div className=" bg-white  px-4 md:px-8 py-3 flex flex-wrap justify-center md:justify-end items-center gap-4 md:gap-8 text-xs md:text-sm">
-        <div className="container mx-auto flex items-end gap-4 justify-end">
+        <div className="container px-4 md:px-12 mx-auto flex items-end gap-4 justify-end">
           <Link
             href={`https://api.whatsapp.com/send/?phone=${siteConfig.whatsAppNumber}&type=phone_number&app_absent=0`}
             target="_blank"
             className="flex items-center gap-2 hover:text-primary transition-colors font-bold"
           >
-            <BsWhatsapp className="text-primary" />
+            <BsWhatsapp className="text-primary size-6" />
             <span className="hidden sm:inline">
               {siteConfig.phoneNumbers[0].phone}
             </span>
@@ -140,7 +140,7 @@ export async function Navigation() {
             href={`mailto:${siteConfig.email}`}
             className="flex items-center gap-2 hover:text-primary transition-colors font-bold"
           >
-            <Mail size={16} className="text-primary" />
+            <Mail className="text-primary size-6" />
             <span className="hidden sm:inline">info@essencetreksnepal.com</span>
           </Link>
         </div>

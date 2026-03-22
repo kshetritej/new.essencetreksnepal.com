@@ -1,8 +1,8 @@
 import { siteConfig } from "@/lib/siteConfig";
 import { LucideMail, LucideMapPin, LucidePhone } from "lucide-react";
 import Link from "next/link";
-import { url } from "node:inspector/promises";
 import { FaFacebook, FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa";
+import Image from "next/image";
 
 export default async function Footer() {
   const res = await fetch(
@@ -91,46 +91,46 @@ export default async function Footer() {
         </div>
       </div>
       <div className="bg-amber-50">
-        <div className="container mx-auto py-12 grid md:grid-cols-2 gap-4 px-4">
-          <div>
+        <div className="container mx-auto py-8 grid md:grid-cols-2 gap-4 px-4 text-center items-center justify-center">
+          <div className="flex flex-col justify-center items-center">
             <div className="font-black text-lg">Find us on</div>
             <div className="flex gap-4 mt-4">
               {socials.map((social, index) => {
                 return (
-                  <Link href={social.url} key={index}>
+                  <Link target="_blank" href={social.url} key={index}>
                     {social.icon}
                   </Link>
                 );
               })}
             </div>
           </div>
-          <div>
+          <div className="flex flex-col justify-center items-center">
             <div className="font-black text-lg">Associated With</div>
             <div className="flex gap-4 mt-4">
-              <img
-                src={"https://www.moha.gov.np/static/nepal-government.png"}
-                className="object-contain w-40"
-              />
-              {/*<img
-                src={"https://www.taan.org.np/public/images/taan-logo.jpg"}
-                className="object-contain w-40"
-              />
-              <img
-                src={"https://www.taan.org.np/public/images/ntb.jpg"}
-                className="object-contain w-40"
-              />
-              <img
-                src={
-                  "https://www.nepalmountaineering.org/storage/website/logo-header.png"
-                }
-                className="object-contain w-40"
-              />*/}
+              {[
+                "/associations/taan.avif",
+                "/associations/nepal-government.avif",
+                "/associations/nma.avif",
+                "/associations/ntb.avif",
+                "/associations/keep.avif",
+              ].map((image, index) => {
+                return (
+                  <Image
+                    alt={`Association ${index + 1}`}
+                    src={image}
+                    height={20}
+                    width={20}
+                    key={index}
+                    className="object-contain w-12"
+                  />
+                );
+              })}
             </div>
           </div>
         </div>
-        <div className="p-4 items-center text-center">
-          &copy;Copyright {siteConfig.name} {new Date().getFullYear()}. All
-          rights reserved.
+        <div className="p-4 items-center text-center border-t">
+          &copy;Copyright {siteConfig.name}. {siteConfig.established} -{" "}
+          {new Date().getFullYear()}. All rights reserved.
         </div>
       </div>
     </div>

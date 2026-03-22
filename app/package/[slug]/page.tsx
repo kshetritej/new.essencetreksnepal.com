@@ -114,9 +114,9 @@ export default async function TripPage({
         <div className="flex items-center gap-2">
           {/*Rated {siteConfig.reviews.tripadvisor.rating}/5 in Tripadvisor*/}
           <div className="flex md:gap-4 flex-col md:flex-row items-start gap-1">
-            <TripAdvisorRatingBadge />
-            <Separator orientation="vertical" />
             <GoogleRatingBadge />
+            <Separator orientation="vertical" />
+            <TripAdvisorRatingBadge />
           </div>
         </div>
       </div>
@@ -176,7 +176,7 @@ export default async function TripPage({
 
       {/*Content starts */}
       <SectionNavigation />
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-4 min-w-0">
           <div className="col-span-3 min-w-0!">
             <TripOverview trip={trip} />
