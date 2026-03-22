@@ -23,7 +23,7 @@ export function TripOverview({ trip }: TripOverviewProps) {
       {/* AT A GLANCE Section */}
       <div>
         <div className="font-bold mb-2">AT A GLANCE</div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 bg-primary/10 p-4 rounded-sm">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2 bg-primary/10 p-4 rounded-sm">
           {/* Duration */}
           <GlanceItem
             text="Duration"

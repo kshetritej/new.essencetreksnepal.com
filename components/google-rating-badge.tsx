@@ -4,14 +4,14 @@ import Link from "next/link";
 
 export default function GoogleRatingBadge() {
   return (
-    <div className="flex gap-4 items-start md:items-center justify-center">
+    <div className="flex gap-4 items-center justify-center">
       <Image
         src={"/assets/googleicon.png"}
         height={20}
         width={20}
         alt="tripadvisor logo"
       />
-      <span className="font-bold text-muted-foreground">
+      <span className="font-bold text-muted-foreground text-xs sm:text-base">
         {siteConfig.reviews.googleReview.rating} Rating out of 5 based on{" "}
         <Link
           href={

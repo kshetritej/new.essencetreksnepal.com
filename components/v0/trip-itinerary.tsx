@@ -84,7 +84,7 @@ export function TripItinerary({ trip }: TripItineraryProps) {
                     day?.descent ||
                     day?.distance ||
                     (day?.meals && day.meals?.length > 0)) && (
-                    <div className="grid grid-cols-2 gap-1 bg-primary/20 p-2 rounded-xs space-y-1.5 my-4">
+                    <div className="grid sm:grid-cols-2 gap-1 bg-primary/20 p-2 rounded-xs space-y-1.5 my-4">
                       {day?.duration && (
                         <div className="flex gap-1 items-center">
                           <LucideClock />{" "}
