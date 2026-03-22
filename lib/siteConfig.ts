@@ -4,7 +4,7 @@ export const siteConfig = {
   description: "Conquer the Roof of the World, One Step at a Time!",
   url: "https://essencetreksnepal.com",
   image: "/og.png",
-  whatsAppNumber: "+977 9804148802",
+  whatsAppNumber: "9779804148802",
   phoneNumbers: [
     { phone: "+977-9804148802" },
     { tel: "+061-452788" },
@@ -23,10 +23,8 @@ export const siteConfig = {
   fullAddress: "Khahare Chowk, Lakeside Rd, Pokhara, Kaski, Nepal, 33700",
   socials: {
     facebook: "https://www.facebook.com/essencetreksinnepal",
-    instagram: "https://www.instagram.com/",
-    twitter: "https://twitter.com/",
-    youtube: "https://www.youtube.com/",
-    tiktok: "https://www.tiktok.com/",
+    youtube: "https://www.youtube.com/@essencettt",
+    tiktok: "https://www.tiktok.com/@essencetreksnepal.com",
   },
   documents: {
     NATHM_Certificate: "/documents/nathm_certificate.webp",

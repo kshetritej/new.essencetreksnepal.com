@@ -1,9 +1,6 @@
-import Image from "next/image";
-import { Button } from "../ui/button";
 import { satisfy } from "@/lib/font";
 import { cn } from "@/lib/utils";
-import { Input } from "../ui/input";
-import { SearchIcon } from "lucide-react";
+import HeroSearch from "@/components/hero-search";
 
 export default function HomeHero() {
   return (
@@ -35,16 +32,7 @@ export default function HomeHero() {
           <h1 className="uppercase font-black  text-3xl lg:text-5xl mb-4 text-shadow-xs text-shadow-black">
             Essence Treks Nepal
           </h1>
-
-          <div className="gap-4 items-center bg-white rounded-sm p-2 hidden sm:flex">
-            <Input
-              placeholder="Where are you going?"
-              className=" focus:outline-0 border-white p-4 shadow-none"
-            />
-            <Button className="rounded-sm">
-              <SearchIcon />
-            </Button>
-          </div>
+          <HeroSearch />
         </div>
       </div>
     </div>

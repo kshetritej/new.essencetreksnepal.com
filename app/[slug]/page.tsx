@@ -71,7 +71,7 @@ export default async function BlogSingle({
     <div className=" max-w-6xl mx-auto">
       <MyBreadCrumb items={breadcrumbItems} />
       <section
-        className="pt-8 md:pt-4
+        className="pt-8 md:pt-4 p-2
         prose-base leading leading-relaxed
         prose-headings:text-gray-900 prose-headings:font-bold
         prose-h1:text-3xl

@@ -3,7 +3,21 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import { LucideArrowRight, LucideClock, LucideGauge } from "lucide-react";
 import { Badge } from "../ui/badge";
+import { Metadata } from "next";
 
+export const generateMetadata = (): Metadata => {
+  return {
+    title: "Trekking Trips in Nepal | Essence Treks Nepal",
+    description:
+      "Explore the best trekking adventures in Nepal with Essence Treks Nepal. From Annapurna Base Camp to Everest Base Camp, enjoy expertly guided Himalayan treks with comfortable stays. Book your 2026 Nepal trekking journey today.",
+    openGraph: {
+      title: "Trekking Trips in Nepal | Essence Treks Nepal",
+      description:
+        "Explore the best trekking adventures in Nepal with Essence Treks Nepal. From Annapurna Base Camp to Everest Base Camp, enjoy expertly guided Himalayan treks with comfortable stays. Book your 2026 Nepal trekking journey today.",
+      images: ["https://essencetreksnepal.com/og-image.jpg"],
+    },
+  };
+};
 export default function TripCard({ trip }: { trip: any }) {
   return (
     <Link

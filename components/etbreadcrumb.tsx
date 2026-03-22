@@ -21,11 +21,7 @@ type BCItem = { label: string; href?: string };
 
 export function MyBreadCrumb({ items }: Readonly<{ items?: BCItem[] }>) {
   const renderDefault = () => (
-    <Breadcrumb
-      className="
-      prose-li:before:mask-none
-      "
-    >
+    <Breadcrumb className="prose-li:before:mask-none">
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
@@ -65,7 +61,7 @@ export function MyBreadCrumb({ items }: Readonly<{ items?: BCItem[] }>) {
   if (!items || items.length === 0) return renderDefault();
 
   return (
-    <Breadcrumb className="px-2 py-4  w-full shadow-none z-9">
+    <Breadcrumb className="p-4 pt-4 pb-1 w-full shadow-none z-9">
       <BreadcrumbList>
         {items.map((it, idx) => (
           <span key={idx} className="flex items-center">
