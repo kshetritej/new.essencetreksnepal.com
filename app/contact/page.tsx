@@ -1,8 +1,9 @@
 import ContactForm from "@/components/contact-form";
 import MapSection from "@/components/map-section";
 import ContactInfo from "@/components/contact-info";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Contact Us | Essence Treks - Get in Touch",
   description:
     "Contact Essence Treks for your Nepal trekking adventure. Reach us via phone, email, or WhatsApp. Located in Lakeside, Pokhara, Nepal.",

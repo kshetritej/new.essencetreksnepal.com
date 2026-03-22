@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
+@plugin "tailwind-scrollbar-hide";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -131,18 +132,18 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin: 1.5rem 0;
-    border: 1px solid #e5e7eb;
+    background-color: white;
     border-radius: 0.5rem;
     overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: none !important;
 }
 
-table thead {
+table tbody tr:hover {
+    background-color: #f3f4f6;
+}
+th {
     background-color: #f9fafb;
     border-bottom: 2px solid #e5e7eb;
-}
-
-table th {
     padding: 1rem 1.5rem;
     text-align: left;
     font-weight: 600;
@@ -150,23 +151,8 @@ table th {
     font-size: 0.95rem;
     letter-spacing: 0.5px;
 }
-
-table tbody tr {
-    border-bottom: 1px solid #e5e7eb;
-    transition: background-color 0.2s ease;
-}
-
-table tbody tr:nth-child(even) {
-    background-color: #f9fafb;
-}
-
-table tbody tr:hover {
-    background-color: #f3f4f6;
-}
-
-table td {
+td {
     padding: 1rem 1.5rem;
-    color: #374151;
     font-size: 1.25rem;
 }
 
@@ -200,3 +186,12 @@ table td:first-child {
 /** {
     border: 1px solid red;
 }*/
+
+/* Wrap all tables in a scrollable container */
+.content-body table {
+    border: none;
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+}

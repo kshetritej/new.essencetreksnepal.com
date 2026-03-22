@@ -3,21 +3,17 @@ import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 
-import {
-  CheckCircle2,
-  MessageCircle,
-  Phone,
-  ChevronRight,
-  LucideSend,
-} from "lucide-react";
+import { MessageCircle, Phone, ChevronRight, LucideSend } from "lucide-react";
 import { siteConfig } from "@/lib/siteConfig";
 export default function PricingCardSidebar({
   price,
   maxPrice,
+  slug,
   title,
 }: {
   price: number;
   maxPrice: number;
+  slug?: string;
   title: string;
 }) {
   return (
@@ -45,13 +41,13 @@ export default function PricingCardSidebar({
           {/* Action Buttons */}
           <div>For questions or booking inquiries</div>
           <div className="space-y-3">
-            <Link href={"/contact"}>
+            <Link href={"/booking?q=" + slug}>
               <Button
                 className="w-full h-12 text-base font-semibold shadow-sm"
                 size="lg"
               >
                 <LucideSend />
-                Contact us
+                Send a Inquiry
               </Button>
             </Link>
           </div>

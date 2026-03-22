@@ -38,7 +38,7 @@ export function MobileMenu({ items }: MobileMenuProps) {
 
       {/* Slide-down panel */}
       {isOpen && (
-        <div className="md:hidden fixed inset-x-0 top-[calc(var(--nav-height,112px))] bg-white border-t border-gray-200 z-50 overflow-y-auto max-h-[calc(100vh-112px)]">
+        <div className="md:hidden fixed inset-x-0 top-[calc(var(--nav-height,112px))] bg-white border-t border-gray-200 z-50 overflow-y-auto max-h-[calc(100vh-112px)] scrollbar-hide">
           {items.map((item) => (
             <MobileMenuItem key={item.id} item={item} level={0} />
           ))}

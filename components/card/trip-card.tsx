@@ -22,7 +22,7 @@ export default function TripCard({ trip }: { trip: any }) {
   return (
     <Link
       href={`/package/${trip.canonicalPath || trip.slug} `}
-      className="p-4 min-w-64  md:min-w-md hover:-translate-y-0.5 duration-300 flex flex-col items-start group hover:shadow-b-sm rounded-sm"
+      className="p-4 min-w-64 md:min-w-sm hover:-translate-y-0.5 duration-300 flex flex-col items-start group hover:shadow-b-sm rounded-sm"
     >
       <div className="max-w-md overflow-hidden rounded-t-sm h-42 md:h-72">
         <Image
@@ -43,7 +43,7 @@ export default function TripCard({ trip }: { trip: any }) {
           </Badge>
         </div>
         <div className="min-h-16 py-2">
-          <div className="font-black md:text-2xl text-left">
+          <div className="font-black md:text-2xl text-left max-w-sm">
             {trip.title.split(":")[0]}
           </div>
         </div>

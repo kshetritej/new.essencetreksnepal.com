@@ -13,11 +13,10 @@ import Script from "next/script";
 import { LucideImage, LucideInfo } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionNavigation } from "@/components/section-nav";
-import Link from "next/link";
-import { siteConfig } from "@/lib/siteConfig";
 import TripAdvisorRatingBadge from "@/components/tripadvisor-rating-badge";
 import GoogleRatingBadge from "@/components/google-rating-badge";
 import { Separator } from "@/components/ui/separator";
+import MobileImageViewer from "@/components/mobile-image-viewer";
 
 export async function generateMetadata({
   params,
@@ -113,55 +112,67 @@ export default async function TripPage({
           {trip.title}
         </h1>
         <div className="flex items-center gap-2">
-          <Link
-            href={siteConfig.reviews.tripadvisor.link}
-            className="text-sm text-green-700"
-          >
-            {/*Rated {siteConfig.reviews.tripadvisor.rating}/5 in Tripadvisor*/}
-            <div className="flex md:gap-4 flex-col md:flex-row items-start gap-1">
-              <TripAdvisorRatingBadge />
-              <Separator orientation="vertical" />
-              <GoogleRatingBadge />
-            </div>
-          </Link>
+          {/*Rated {siteConfig.reviews.tripadvisor.rating}/5 in Tripadvisor*/}
+          <div className="flex md:gap-4 flex-col md:flex-row items-start gap-1">
+            <TripAdvisorRatingBadge />
+            <Separator orientation="vertical" />
+            <GoogleRatingBadge />
+          </div>
         </div>
       </div>
 
       {/*Images in Lightbox*/}
-      {trip.images && trip.images.length > 0 && (
-        <Lightbox images={trip.images} keywords={trip.keywords || []}>
-          <div className="grid md:grid-cols-3 gap-2 container mx-auto relative">
-            <div className="rounded-sm overflow-hidden col-span-2">
-              <Image
-                src={mainImage}
-                alt={trip.keywords[0] || trip.title}
-                height={1280}
-                width={1920}
-                className="w-full h-full object-cover rounded-sm"
+      <div className="relative">
+        {trip.images && trip.images.length > 0 && (
+          <>
+            <div className="md:hidden">
+              <MobileImageViewer
+                images={trip.images}
+                keywords={trip.keywords}
               />
             </div>
-            <div className="col-span-1 gap-2 hidden md:grid">
-              {otherImages.map((imageUrl: string, index: number) => (
-                <div key={imageUrl} className="rounded-sm overflow-hidden">
-                  <Image
-                    alt={trip.keywords[index + 1] || trip.title + "2"}
-                    src={imageUrl}
-                    height={1280}
-                    width={1920}
-                    className="w-full object-cover rounded-sm"
-                  />
+            {trip.images && trip.images.length > 0 && (
+              <Lightbox images={trip.images} imageAlts={trip.keywords || []}>
+                <div className="md:grid-cols-3 gap-2 container mx-auto relative hidden md:grid">
+                  <div className="rounded-sm overflow-hidden col-span-2">
+                    <Image
+                      data-lightbox-index={0}
+                      src={mainImage}
+                      alt={trip.keywords[0] || trip.title}
+                      height={1280}
+                      width={1920}
+                      className="w-full h-full object-cover rounded-sm"
+                    />
+                  </div>
+                  <div className="col-span-1 gap-2 hidden md:grid">
+                    {otherImages.map((imageUrl: string, index: number) => (
+                      <div
+                        key={imageUrl}
+                        className="rounded-sm overflow-hidden"
+                      >
+                        <Image
+                          alt={trip.keywords[index + 1] || trip.title + "2"}
+                          data-lightbox-index={index + 1}
+                          src={imageUrl}
+                          height={1280}
+                          width={1920}
+                          className="w-full object-cover rounded-sm"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                  <Button
+                    className="absolute top-2 left-2 opacity-45 font-black text-xs"
+                    variant={"secondary"}
+                  >
+                    <LucideImage /> {trip.images.length} Photo(s)
+                  </Button>
                 </div>
-              ))}
-            </div>
-            <Button
-              className="absolute top-2 left-2 opacity-45 font-black text-xs"
-              variant={"secondary"}
-            >
-              <LucideImage /> {trip.images.length} Photo(s)
-            </Button>
-          </div>
-        </Lightbox>
-      )}
+              </Lightbox>
+            )}
+          </>
+        )}
+      </div>
 
       {/*Content starts */}
       <SectionNavigation />
@@ -170,36 +181,37 @@ export default async function TripPage({
           <div className="col-span-3 min-w-0!">
             <TripOverview trip={trip} />
             <div
-              className="col-span-2 min-w-0!
-      prose-base leading leading-relaxed
-      prose-headings:text-gray-900 prose-headings:font-bold
-      prose-h1:text-3xl
-      prose-h2:text-3xl   prose-h2:font-bold
-      prose-h3:text-xl
-      prose-h4:text-lg
-      prose-p:leading-relaxed prose-p:mb-4 prose-p:mt-0 prose-p:text-xl
-      prose-a:text-primary prose-a:no-underline hover:prose-a:text-primary hover:prose-a:underline
-      prose-strong:text-black prose-strong:font-bold
-      prose-ul:my-2 prose-ol:my-2
-      prose-li:text-gray-700 prose-li:mb-1
-      prose-blockquote:border-l-4 prose-blockquote:border-primary/70 prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-gray-600
-      prose-img:rounded-lg prose-img:my-6
-      prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm
-      prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:rounded-lg prose-pre:p-4
-      prose-ul:list-none
-      prose-li:relative prose-li:pl-8 prose-li:text-xl
-      prose-li:before:absolute
-      prose-li:before:left-0
-      prose-li:before:top-[0.45em]
-      prose-li:before:w-4 prose-li:before:h-4
-      prose-li:before:mask-[url('/icons/highlight.png')]
-      prose-li:before:mask-contain
-      prose-li:before:mask-no-repeat
-      prose-li:before:bg-primary
-      prose max-w-none w-full
-      wrap-break-word
-      **:wrap-break-word
-            "
+              className="col-span-2
+            content-body
+             prose-base leading-loose
+             prose-headings:text-gray-900 prose-headings:font-bold
+             prose-h1:text-3xl
+             prose-h2:text-3xl   prose-h2:font-bold
+             prose-h3:text-xl
+             prose-h4:text-lg
+             prose-p:leading-relaxed  prose-p:text-xl
+             prose-a:text-primary prose-a:no-underline hover:prose-a:text-primary hover:prose-a:underline
+            prose-strong:text-black prose-strong:font-bold
+             prose-ul:my-2 prose-ol:my-2
+            prose-li:text-gray-700 prose-li:mb-1
+             prose-blockquote:border-l-4 prose-blockquote:border-primary/70 prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-gray-600
+             prose-img:rounded-lg prose-img:my-6
+             prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm
+             prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:rounded-lg prose-pre:p-4
+             prose-ul:list-none
+             prose-li:relative prose-li:pl-8 prose-li:text-xl
+             prose-li:before:absolute
+             prose-li:before:left-0
+             prose-li:before:top-[0.45em]
+             prose-li:before:w-4 prose-li:before:h-4
+             prose-li:before:mask-[url('/icons/highlight.png')]
+             prose-li:before:mask-contain
+             prose-li:before:mask-no-repeat
+             prose-li:before:bg-primary
+             prose max-w-none w-full
+            wrap-break-word
+             **:wrap-break-word
+                   "
             >
               <TripItinerary trip={trip} />
               <div
@@ -249,6 +261,7 @@ export default async function TripPage({
           <div className="col-span-1 hidden md:flex">
             <div>
               <PricingCardSidebar
+                slug={slug}
                 title={trip.title}
                 price={trip.price}
                 maxPrice={trip.price * 0.2}

@@ -6,6 +6,19 @@ import type { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
 
+export const generateMetadata = (): Metadata => {
+  return {
+    title: "Trekking Trips in Nepal | Essence Treks Nepal",
+    description:
+      "Explore the best trekking adventures in Nepal with Essence Treks Nepal. From Annapurna Base Camp to Everest Base Camp, enjoy expertly guided Himalayan treks with comfortable stays. Book your 2026 Nepal trekking journey today.",
+    openGraph: {
+      title: "Trekking Trips in Nepal | Essence Treks Nepal",
+      description:
+        "Explore the best trekking adventures in Nepal with Essence Treks Nepal. From Annapurna Base Camp to Everest Base Camp, enjoy expertly guided Himalayan treks with comfortable stays. Book your 2026 Nepal trekking journey today.",
+      images: ["https://essencetreksnepal.com/og-image.jpg"],
+    },
+  };
+};
 export default async function ExplorePage({
   searchParams,
 }: {
@@ -40,7 +53,7 @@ export default async function ExplorePage({
       </form>
 
       {trips.length > 0 ? (
-        <div className="flex gap-4 flex-wrap">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {trips.map((trip: any) => (
             <TripCard trip={trip} key={trip.id} />
           ))}

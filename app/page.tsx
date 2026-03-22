@@ -28,8 +28,8 @@ export default async function Homepage() {
       <FeaturedSections featuredTags={firstFeatured} />
       <WhySection />
       <FeaturedTrip />
-      <FeaturedSections featuredTags={secondFeatured} />
       <Testimonials />
+      <FeaturedSections featuredTags={secondFeatured} />
     </>
   );
 }

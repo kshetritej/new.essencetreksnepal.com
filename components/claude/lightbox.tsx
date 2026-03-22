@@ -1,17 +1,16 @@
 "use client";
-
 import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 
 interface LightboxProps {
   images: string[];
-  keywords: string[];
+  imageAlts: string[];
   children: React.ReactNode;
 }
 
 export const Lightbox: React.FC<LightboxProps> = ({
   images,
-  keywords,
+  imageAlts,
   children,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,7 +48,14 @@ export const Lightbox: React.FC<LightboxProps> = ({
 
   const triggerElement = React.cloneElement(children as React.ReactElement, {
     // @ts-ignore
-    onClick: () => openLightbox(0),
+    onClick: (e: React.MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const index = target
+        .closest("[data-lightbox-index]")
+        ?.getAttribute("data-lightbox-index");
+
+      openLightbox(index ? parseInt(index) : 0);
+    },
   });
 
   if (!isOpen) return <>{triggerElement}</>;
@@ -136,15 +142,15 @@ export const Lightbox: React.FC<LightboxProps> = ({
             </button>
           </>
         )}
-
-        <pre className="text-white bg-black absolute bottom-2 hidden md:block">
-          {JSON.stringify(keywords[currentIndex])}
+        <pre className="absolute hidden md:block bottom-1 bg-transparent!">
+          {JSON.stringify(imageAlts[currentIndex])}
         </pre>
         <Image
           width={1920}
           height={1280}
           src={images[currentIndex]}
-          alt={keywords[currentIndex] || `Image ${currentIndex + 1}`}
+          alt={imageAlts[currentIndex] || `Image ${currentIndex + 1}`}
+          // onClick={(e) => e.stopPropagation()}
           style={{
             maxWidth: "100vw",
             maxHeight: "100vh",

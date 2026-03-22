@@ -14,6 +14,7 @@ import {
   LucideClock,
   LucideHandPlatter,
   LucideMinus,
+  LucideMoveRight,
   LucideRulerDimensionLine,
   LucideTent,
 } from "lucide-react";
@@ -56,24 +57,25 @@ export function TripItinerary({ trip }: TripItineraryProps) {
         <Accordion
           type="single"
           collapsible
-          defaultValue="1"
+          defaultValue="0"
           className="border-l-2 border-dashed border-primary px-4 py-0 my-0"
         >
-          <div className="flex flex-col gap-1 ">
+          <div className="flex flex-col">
             {trip.itinerary.map((day, index) => (
               <AccordionItem
                 key={index}
                 value={index.toString()}
-                className="relative"
+                className="not-prose relative border-none"
               >
-                <LucideCircle className="absolute top-7.5 -ml-6.5  size-4 fill-white stroke-primary" />
-                <AccordionTrigger className="font-bold text-md p-0 m-0 flex items-center justify-between prose-h3:p-0 prose-h3:m-0 prose-h3:leading-0 hover:no-underline">
+                <LucideCircle className="absolute top-5.5 -ml-6.5  size-4 fill-white stroke-primary py-0! my-0!" />
+                <AccordionTrigger className="font-bold text-xl cursor-pointer flex items-center justify-between prose-h3:p-0 prose-h3:m-0  hover:no-underline border-b rounded-none">
                   <h3 className="flex items-center gap-4">{day.title}</h3>
                 </AccordionTrigger>
-                <AccordionContent className="text-base">
+                <AccordionContent className="prose prose-p:leading-relaxed text-xl pt-4">
                   <div
-                    className="text-base"
-                    dangerouslySetInnerHTML={{ __html: day.description }}
+                    dangerouslySetInnerHTML={{
+                      __html: decodeHtmlEntities(day.description),
+                    }}
                   />
 
                   {(day?.duration ||
@@ -82,7 +84,7 @@ export function TripItinerary({ trip }: TripItineraryProps) {
                     day?.descent ||
                     day?.distance ||
                     (day?.meals && day.meals?.length > 0)) && (
-                    <div className="grid grid-cols-2 gap-1 bg-primary/20 p-2 rounded-sm space-y-1.5 my-4">
+                    <div className="grid grid-cols-2 gap-1 bg-primary/20 p-2 rounded-xs space-y-1.5 my-4">
                       {day?.duration && (
                         <div className="flex gap-1 items-center">
                           <LucideClock />{" "}
@@ -117,8 +119,8 @@ export function TripItinerary({ trip }: TripItineraryProps) {
                             <LucideTent />
                             Accommodations:
                           </div>
-                          <div className="flex gap-1">
-                            <LucideMinus />
+                          <div className="flex gap-1 items-center">
+                            <LucideMoveRight />
                             {day.accommodations.join(", ")}
                           </div>
                         </div>
@@ -130,7 +132,7 @@ export function TripItinerary({ trip }: TripItineraryProps) {
                             Meals:
                           </div>
                           <div className="flex gap-1">
-                            <LucideMinus />
+                            <LucideMoveRight />
                             {day.meals.join(", ")}
                           </div>
                         </div>

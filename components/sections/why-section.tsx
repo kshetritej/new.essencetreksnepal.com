@@ -11,6 +11,8 @@ import {
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
 import TripAdvisorRatingBadge from "../tripadvisor-rating-badge";
+import Link from "next/link";
+import GoogleRatingBadge from "../google-rating-badge";
 
 export default function WhySection() {
   return (
@@ -67,9 +69,11 @@ export default function WhySection() {
             ease, confidence, and a touch of wonder—wherever your dreams take
             you.
           </div>
-          <Button className="w-fit rounded-xs font-bold">
-            More about us <ChevronRight />
-          </Button>
+          <Link href="/about-us">
+            <Button className="w-fit rounded-xs font-bold">
+              More about us <ChevronRight />
+            </Button>
+          </Link>
           <Separator className="my-4" />
 
           <div className="flex gap-4 justify-between">
@@ -95,6 +99,7 @@ export default function WhySection() {
 
           <Separator className="my-4" />
           <TripAdvisorRatingBadge />
+          <GoogleRatingBadge />
         </div>
       </div>
     </div>
