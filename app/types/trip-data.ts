@@ -18,6 +18,9 @@ export interface TripData {
   accommodationType: string;
   bestTime: string;
   groupSize: string;
+  transportation: string;
+  meals: string;
+  bestSeason: string;
   travelStyle: string;
   locations: string[];
   images: string[];

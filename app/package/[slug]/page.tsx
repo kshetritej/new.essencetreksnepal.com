@@ -10,7 +10,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Script from "next/script";
-import { LucideImage, LucideInfo } from "lucide-react";
+import { LucideImage, LucideInfo, LucidePlayCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionNavigation } from "@/components/section-nav";
 import TripAdvisorRatingBadge from "@/components/tripadvisor-rating-badge";
@@ -186,7 +186,7 @@ export default async function TripPage({
              prose-base leading-loose
              prose-headings:text-gray-900 prose-headings:font-bold
              prose-h1:text-3xl
-             prose-h2:text-3xl   prose-h2:font-bold
+             prose-h2:text-3xl  prose-h2:font-bold prose-h2:text-primary
              prose-h3:text-xl
              prose-h4:text-lg
              prose-p:leading-relaxed  prose-p:text-xl
@@ -214,6 +214,32 @@ export default async function TripPage({
                    "
             >
               <TripItinerary trip={trip} />
+              {trip.map && (
+                <div
+                  id="map"
+                  dangerouslySetInnerHTML={{
+                    __html: decodeHtmlEntities(trip.map),
+                  }}
+                />
+              )}
+
+              {trip.videoUrl && (
+                <>
+                  <h2 className="flex gap-1 items-center ">
+                    <LucidePlayCircle className="text-primary size-8" />{" "}
+                    {trip.title}
+                    &apos;s Video
+                  </h2>
+                  <div
+                    id="video"
+                    dangerouslySetInnerHTML={{
+                      __html: decodeHtmlEntities(trip.videoUrl),
+                    }}
+                  />
+                </>
+              )}
+
+              <div></div>
               <div
                 id="inclusions"
                 dangerouslySetInnerHTML={{

@@ -8,12 +8,11 @@ import {
   LucideMountain,
   LucideTentTree,
   LucideMap,
-  LucideStar,
+  LucideBus,
+  LucideHandPlatter,
+  LucideSunMoon,
 } from "lucide-react";
 import PricingCardSidebar from "../card/pricing-card";
-import { siteConfig } from "@/lib/siteConfig";
-import Link from "next/link";
-import TripAdvisorRatingBadge from "../tripadvisor-rating-badge";
 
 interface TripOverviewProps {
   trip: TripData;
@@ -39,7 +38,7 @@ export function TripOverview({ trip }: TripOverviewProps) {
           <GlanceItem
             text="Group Size"
             icon={LucideUsers}
-            value={String(trip.guestCapacity) ?? "-"}
+            value={trip.groupSize ?? "-"}
           />
           <GlanceItem
             text="Start"
@@ -60,6 +59,22 @@ export function TripOverview({ trip }: TripOverviewProps) {
             text="Accommodations"
             icon={LucideTentTree}
             value={trip.accommodations.join(", ") ?? "-"}
+          />
+          <GlanceItem
+            text="Transportation"
+            icon={LucideBus}
+            value={trip?.transportation ?? "-"}
+          />
+          <GlanceItem
+            text="Meals"
+            icon={LucideHandPlatter}
+            value={trip?.meals ?? "-"}
+          />
+
+          <GlanceItem
+            text="Best Seasons"
+            icon={LucideSunMoon}
+            value={trip?.bestSeason ?? "-"}
           />
           <GlanceItem
             text="Locations"
