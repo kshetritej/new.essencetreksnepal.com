@@ -30,9 +30,9 @@ export function MobileMenu({ items }: MobileMenuProps) {
         className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
       >
         {isOpen ? (
-          <X size={24} className="text-gray-900" />
+          <X size={24} className="text-white" />
         ) : (
-          <Menu size={24} className="text-gray-900" />
+          <Menu size={24} className="text-white" />
         )}
       </Button>
 

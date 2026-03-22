@@ -1,5 +1,6 @@
 export function parseHTMLContent(html: string) {
-  const regex = /<p>\s*(\["packages".*?\])\s*<\/p>/g;
+  // const regex = /<p>\s*(\["packages".*?\])\s*<\/p>/g;
+  const regex = /(\["packages".*?\])/g;
 
   const parts: any[] = [];
   let lastIndex = 0;

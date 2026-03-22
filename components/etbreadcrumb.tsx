@@ -21,7 +21,11 @@ type BCItem = { label: string; href?: string };
 
 export function MyBreadCrumb({ items }: Readonly<{ items?: BCItem[] }>) {
   const renderDefault = () => (
-    <Breadcrumb className="">
+    <Breadcrumb
+      className="
+      prose-li:before:mask-none
+      "
+    >
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink asChild>

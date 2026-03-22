@@ -17,6 +17,7 @@ export default function PackagesBlock({
         console.log("Fetching datas...");
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_API_BASE_URL}/activity?limit=${count}`,
+          { cache: "no-store" },
         );
 
         const json = await res.json();
@@ -32,7 +33,7 @@ export default function PackagesBlock({
 
   return (
     <div className="my-8">
-      <div className="flex flex-row gap-4">
+      <div className="flex flex-row gap-4 overflow-auto max-w-screen">
         {packages.map((pkg, index) => (
           <TripCard key={index} trip={pkg} />
         ))}
