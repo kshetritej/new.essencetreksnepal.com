@@ -1,8 +1,3 @@
-// lib/emailTemplate.ts
-// Drop this helper next to your form or in a lib/ folder.
-// Call buildInquiryEmail(data) and pass the result as the `html` field
-// in your fetch body.
-
 type InquiryEmailData = {
   fullName: string;
   email: string;
@@ -77,7 +72,7 @@ export function buildInquiryEmail(data: InquiryEmailData): string {
             <td style="background:linear-gradient(135deg,#1a3a2a 0%,#2d6a4f 60%,#40916c 100%);padding:40px 40px 32px;text-align:center;">
               <!-- Logo / brand mark -->
               <div style="display:inline-block;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:50px;padding:6px 18px;margin-bottom:20px;">
-                <span style="color:#d8f3dc;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;font-family:Georgia,serif;">Hi Nepal Treks</span>
+                <span style="color:#d8f3dc;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;font-family:Georgia,serif;">Essence Treks Nepal</span>
               </div>
               <h1 style="margin:0 0 8px;color:#ffffff;font-size:26px;font-weight:700;letter-spacing:-0.3px;font-family:Georgia,serif;">
                 New Booking Inquiry
@@ -151,10 +146,9 @@ export function buildInquiryEmail(data: InquiryEmailData): string {
           <!-- ── Footer ── -->
           <tr>
             <td style="background:#f9fafb;border-top:1px solid #e5e7eb;padding:24px 40px;text-align:center;">
-              <p style="margin:0 0 4px;font-size:13px;font-weight:600;color:#374151;font-family:Georgia,serif;">Hi Nepal Treks</p>
+              <p style="margin:0 0 4px;font-size:13px;font-weight:600;color:#374151;font-family:Georgia,serif;">Essence Treks Nepal</p>
               <p style="margin:0;font-size:12px;color:#9ca3af;font-family:Georgia,serif;">
-                Street No. 13, Lakeside · Pokhara, Nepal<br/>
-                +977 9856035091 · info@hinepaltreks.com
+                Khahare Chowk, Lakeside Rd, Pokhara, Kaski, Nepal, 33700
               </p>
               <p style="margin:16px 0 0;font-size:11px;color:#d1d5db;font-family:Georgia,serif;">
                 This email was auto-generated from the booking inquiry form.
