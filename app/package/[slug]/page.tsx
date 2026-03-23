@@ -12,11 +12,11 @@ import { notFound } from "next/navigation";
 import Script from "next/script";
 import { LucideImage, LucideInfo, LucidePlayCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { SectionNavigation } from "@/components/section-nav";
 import TripAdvisorRatingBadge from "@/components/tripadvisor-rating-badge";
 import GoogleRatingBadge from "@/components/google-rating-badge";
 import { Separator } from "@/components/ui/separator";
 import MobileImageViewer from "@/components/mobile-image-viewer";
+import { SectionNavigation } from "@/components/section-nav";
 
 export async function generateMetadata({
   params,
