@@ -16,7 +16,7 @@ export default function PackagesBlock({
       try {
         console.log("Fetching datas...");
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_API_BASE_URL}/activity?limit=${count}`,
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/activity?category=${category}&limit=${count}`,
           { cache: "no-store" },
         );
 

@@ -7,7 +7,7 @@ export const revalidate = 3600;
 export const metadata = {
   title: `Plan Your Adventure - ${siteConfig.name}`,
   description:
-    "Plan your Himalayan adventure with Hi Nepal Travels and Treks. Booking trekking, tours, and adventure sports in Nepal through our easy online inquiry form.",
+    "Plan your Himalayan adventure with. Booking trekking, tours, and adventure sports in Nepal through our easy online inquiry form.",
   alternates: {
     canonical: process.env.NEXT_PUBLIC_FRONTEND_BASE_URL + "/booking",
   },
