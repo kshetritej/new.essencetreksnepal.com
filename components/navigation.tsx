@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/siteConfig";
 import Logo from "./logo";
 import { BsWhatsapp } from "react-icons/bs";
 import { Button } from "./ui/button";
+import { cache } from "react";
 
 type MenuItem = {
   id: string;
@@ -24,7 +25,7 @@ type MenuData = {
   };
 };
 
-async function fetchMenu(): Promise<MenuItem[]> {
+const fetchMenu = cache(async () => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/menu`, {
       next: { revalidate: 60 },
@@ -37,7 +38,7 @@ async function fetchMenu(): Promise<MenuItem[]> {
   } catch {
     return [];
   }
-}
+});
 
 const hasChildren = (item: MenuItem) =>
   Array.isArray(item.children) && item.children.length > 0;

@@ -4,11 +4,13 @@ import { ScrollArea } from "./ui/scroll-area";
 export default function TestimonialCard({
   name,
   review,
+  rating,
 }: {
   name: string;
   review: string;
+  rating: number;
 }) {
-  const stars = [0, 1, 2, 3, 4];
+  const stars = Array.from({ length: rating });
 
   return (
     <div className="max-w-sm space-y-1.5 min-w-sm">

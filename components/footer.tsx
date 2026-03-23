@@ -1,25 +1,15 @@
 import { siteConfig } from "@/lib/siteConfig";
 import { LucideMail, LucideMapPin, LucidePhone } from "lucide-react";
 import Link from "next/link";
-import { FaFacebook, FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa";
+import { FaFacebook, FaYoutube, FaTiktok } from "react-icons/fa";
 import Image from "next/image";
+import { getCompanyInfos, getGuides } from "@/lib/api";
 
 export default async function Footer() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/blogs/published?category=company`,
-  );
-
-  const json = await res.json();
-
-  const items = json.blogs;
-
-  const res2 = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/blogs/published?category=travel-guide`,
-  );
-
-  const json2 = await res2.json();
-
-  const guides = json2.blogs;
+  const [guides, companyInfos] = await Promise.all([
+    getGuides(),
+    getCompanyInfos(),
+  ]);
 
   const socials = [
     {
@@ -45,7 +35,7 @@ export default async function Footer() {
         <div>
           <h3 className="font-black text-xl">Company</h3>
           <ul className="flex gap-2 flex-col">
-            {items.map((item: any) => (
+            {companyInfos.blogs.map((item: any) => (
               <Link key={item.slug} href={`/${item.slug}`}>
                 <li>{item.title}</li>
               </Link>
@@ -56,7 +46,7 @@ export default async function Footer() {
         <div>
           <h3 className="font-black text-xl">Travel Guides</h3>
           <ul className="flex gap-2 flex-col">
-            {guides.map((item: any) => (
+            {guides.blogs.map((item: any) => (
               <Link key={item.slug} href={`/${item.slug}`}>
                 <li>{item.title}</li>
               </Link>
