@@ -11,7 +11,7 @@ export default function Logo() {
           alt="Essence Treks Nepal Logo"
           width={40}
           height={40}
-          className="rounded-full object-cover"
+          className="rounded-full object-cover h-auto w-auto"
         />
         <span className="hidden md:block uppercase">{siteConfig.name}</span>
       </Link>

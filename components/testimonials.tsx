@@ -54,10 +54,10 @@ export default async function Testimonials() {
             <div className="flex gap-4">
               <Image
                 src={"/assets/tripadvisoricon.png"}
-                width={50}
+                width={40}
                 height={100}
                 alt=""
-                className="object-contain"
+                className="object-contain h-auto w-auto"
               />
               <div>
                 <p className="font-bold text-lg md:text-xl">Tripadvisor</p>
@@ -84,10 +84,10 @@ export default async function Testimonials() {
             <div className="flex gap-4">
               <Image
                 src={"/assets/googleicon.png"}
-                width={50}
+                width={40}
                 height={100}
                 alt=""
-                className="object-contain"
+                className="object-contain h-auto w-auto"
               />
               <div>
                 <p className="font-bold text-lg md:text-xl">Google</p>

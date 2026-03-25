@@ -10,6 +10,7 @@ export default function GoogleRatingBadge() {
         height={20}
         width={20}
         alt="tripadvisor logo"
+        className="w-auto h-auto"
       />
       <span className="font-bold text-muted-foreground text-xs sm:text-base">
         {siteConfig.reviews.googleReview.rating} Rating out of 5 based on{" "}

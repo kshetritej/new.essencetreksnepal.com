@@ -10,6 +10,7 @@ export default function TripAdvisorRatingBadge() {
         height={50}
         width={100}
         alt="tripadvisor logo"
+        className="h-auto w-auto"
       />
       <span className="font-bold text-muted-foreground text-xs sm:text-base">
         {siteConfig.reviews.tripadvisor.rating} Rating out of 5 based on{" "}
