@@ -3,7 +3,7 @@ import "./globals.css";
 import { Navigation } from "@/components/navigation";
 import { Analytics } from "@vercel/analytics/next";
 import CTA from "@/components/cta";
-import { nunitoSans, outfit } from "@/lib/font";
+import { outfit } from "@/lib/font";
 import { siteConfig } from "@/lib/siteConfig";
 import Footer from "@/components/footer";
 

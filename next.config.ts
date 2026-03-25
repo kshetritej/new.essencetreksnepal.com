@@ -1,6 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  reactStrictMode: true,
+  // Add this:
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
   async rewrites() {
     if (process.env.NODE_ENV === "production") {
       return [

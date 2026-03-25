@@ -17,6 +17,7 @@ import GoogleRatingBadge from "@/components/google-rating-badge";
 import { Separator } from "@/components/ui/separator";
 import MobileImageViewer from "@/components/mobile-image-viewer";
 import { SectionNavigation } from "@/components/section-nav";
+import { safeParseSchema } from "@/lib/safeParseSchema";
 
 export async function generateMetadata({
   params,
@@ -103,7 +104,7 @@ export default async function TripPage({
           strategy="lazyOnload"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(JSON.parse(trip.seo.schema)),
+            __html: JSON.stringify(safeParseSchema(trip.seo.schema)),
           }}
         ></Script>
       )}
