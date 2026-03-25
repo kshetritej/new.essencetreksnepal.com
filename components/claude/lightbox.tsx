@@ -8,11 +8,7 @@ interface LightboxProps {
   children: React.ReactNode;
 }
 
-export const Lightbox: React.FC<LightboxProps> = ({
-  images,
-  imageAlts,
-  children,
-}) => {
+const Lightbox: React.FC<LightboxProps> = ({ images, imageAlts, children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -174,3 +170,5 @@ export const Lightbox: React.FC<LightboxProps> = ({
     </>
   );
 };
+
+export default Lightbox;

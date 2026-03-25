@@ -15,7 +15,7 @@ export const BlogRenderer = ({ blog }: { blog: string }) => {
 
   prose-a:text-primary prose-a:no-underline hover:prose-a:text-primary/90 hover:prose-a:underline
 
-  prose-strong:text-foreground prose-strong:font-[700]
+  prose-strong:text-foreground prose-strong:font-bold
 
   prose-ul:my-2 prose-ol:my-2 prose-ol:list-disc
   prose-li:mb-1 prose-li:list-disc

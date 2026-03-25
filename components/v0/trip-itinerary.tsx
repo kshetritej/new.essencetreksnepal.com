@@ -5,7 +5,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "../ui/accordion";
+} from "@/components/ui/accordion";
 import {
   LucideBookText,
   LucideChevronDown,
@@ -13,7 +13,6 @@ import {
   LucideCircle,
   LucideClock,
   LucideHandPlatter,
-  LucideMinus,
   LucideMoveRight,
   LucideRulerDimensionLine,
   LucideTent,
@@ -68,10 +67,45 @@ export function TripItinerary({ trip }: TripItineraryProps) {
                 className="not-prose relative border-none"
               >
                 <LucideCircle className="absolute top-5.5 -ml-6.5  size-4 fill-white stroke-primary py-0! my-0!" />
-                <AccordionTrigger className="font-bold text-xl cursor-pointer flex items-center justify-between prose-h3:p-0 prose-h3:m-0  hover:no-underline border-b rounded-none">
+                <AccordionTrigger
+                  className="content-body font-bold text-xl cursor-pointer flex items-center justify-between prose-h3:p-0 prose-h3:m-0  hover:no-underline border-b rounded-none
+
+                  "
+                >
                   <h3 className="flex items-center gap-4">{day.title}</h3>
                 </AccordionTrigger>
-                <AccordionContent className="prose prose-p:leading-relaxed text-xl pt-4">
+                <AccordionContent
+                  className="text-xl pt-4
+                  prose-base leading-loose
+                  prose-headings:text-gray-900 prose-headings:font-bold
+                  prose-h1:text-3xl
+                  prose-h2:text-3xl  prose-h2:font-bold prose-h2:text-primary
+                  prose-h3:text-xl
+                  prose-h4:text-lg
+                  prose-p:leading-normal prose-p:text-xl
+                  prose-a:text-primary prose-a:no-underline hover:prose-a:text-primary hover:prose-a:underline
+                 prose-strong:text-black prose-strong:font-bold
+                  prose-ul:my-2 prose-ol:my-2
+                 prose-li:text-gray-700 prose-li:mb-1
+                  prose-blockquote:border-l-4 prose-blockquote:border-primary/70 prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-gray-600
+                  prose-img:rounded-lg prose-img:my-6
+                  prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm
+                  prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:rounded-lg prose-pre:p-4
+                  prose-ul:list-none
+                  prose-li:relative prose-li:pl-8 prose-li:text-xl
+                  prose-li:before:absolute
+                  prose-li:before:left-0
+                  prose-li:before:top-[0.45em]
+                  prose-li:before:w-4 prose-li:before:h-4
+                  prose-li:before:mask-[url('/icons/highlight.png')]
+                  prose-li:before:mask-contain
+                  prose-li:before:mask-no-repeat
+                  prose-li:before:bg-primary
+                  prose max-w-none w-full
+                 wrap-break-word
+                  **:wrap-break-word
+                  "
+                >
                   <div
                     dangerouslySetInnerHTML={{
                       __html: decodeHtmlEntities(day.description),
@@ -102,8 +136,10 @@ export function TripItinerary({ trip }: TripItineraryProps) {
                       {day?.ascent && (
                         <div className="flex gap-1 items-center">
                           <LucideChevronUp />{" "}
-                          <span className="font-medium">Ascent:</span>
-                          {day.ascent}
+                          <div className="flex items-start gap-1">
+                            <span className="font-medium">Ascent:</span>
+                            {day.ascent}
+                          </div>
                         </div>
                       )}
                       {day?.descent && (
@@ -131,7 +167,7 @@ export function TripItinerary({ trip }: TripItineraryProps) {
                             <LucideHandPlatter />
                             Meals:
                           </div>
-                          <div className="flex gap-1">
+                          <div className="flex gap-1 items-center">
                             <LucideMoveRight />
                             {day.meals.join(", ")}
                           </div>

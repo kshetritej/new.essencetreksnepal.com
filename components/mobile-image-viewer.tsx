@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import { Button } from "./ui/button";
-import { Lightbox } from "./claude/lightbox";
+import Lightbox from "./claude/lightbox";
 
 export default function MobileImageViewer({
   images,

@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Navigation } from "@/components/navigation";
 import { Analytics } from "@vercel/analytics/next";
-import CTA from "@/components/cta";
 import { outfit } from "@/lib/font";
 import { siteConfig } from "@/lib/siteConfig";
 import Footer from "@/components/footer";
+import Cta from "@/components/cta";
 
 export const metadata: Metadata = {
   title: "Essence Treks",
@@ -30,7 +30,7 @@ export default function RootLayout({
         <Navigation />
         {children}
         <Analytics />
-        <CTA />
+        <Cta />
         <Footer />
       </body>
     </html>

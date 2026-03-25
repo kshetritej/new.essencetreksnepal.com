@@ -1,4 +1,3 @@
-import CTA from "@/components/cta";
 import { siteConfig } from "@/lib/siteConfig";
 
 export default function About() {

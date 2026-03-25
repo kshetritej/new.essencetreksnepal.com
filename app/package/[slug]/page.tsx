@@ -1,6 +1,13 @@
+import {
+  LucideCheckCircle2,
+  LucideImage,
+  LucideInfo,
+  LucidePlayCircle,
+  LucideXCircle,
+} from "lucide-react";
 export const dynamic = "force-static";
 import PricingCardSidebar from "@/components/card/pricing-card";
-import { Lightbox } from "@/components/claude/lightbox";
+import Lightbox from "@/components/claude/lightbox";
 import { AdditionalInfoRenderer } from "@/components/additional-info-renderer";
 import { TripFaqs } from "@/components/v0/trip-faqs";
 import { TripItinerary } from "@/components/v0/trip-itinerary";
@@ -10,7 +17,6 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Script from "next/script";
-import { LucideImage, LucideInfo, LucidePlayCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import TripAdvisorRatingBadge from "@/components/tripadvisor-rating-badge";
 import GoogleRatingBadge from "@/components/google-rating-badge";
@@ -240,24 +246,35 @@ export default async function TripPage({
                 </>
               )}
 
-              <div></div>
-              <div
-                id="inclusions"
-                dangerouslySetInnerHTML={{
-                  __html: decodeHtmlEntities(trip.inclusions[0]),
-                }}
-                className="bg-primary/10 p-2 w-full mt-4 rounded-sm
-                  prose-li:before:mask-[url('/icons/greentick.png')]
-                  prose-li:before:rotate-360
-                   "
-              />
-              <div
-                id="exclusions"
-                dangerouslySetInnerHTML={{
-                  __html: decodeHtmlEntities(trip.exclusions[0]),
-                }}
-                className="w-full bg-rose-500/10 p-2 rounded-sm  mt-4 prose-li:before:mask-[url('/icons/cross.png')]"
-              />
+              <div>
+                <h2 className="flex gap-4 items-center">
+                  <LucideCheckCircle2 /> Inclusions
+                </h2>
+                <div
+                  id="inclusions"
+                  dangerouslySetInnerHTML={{
+                    __html: decodeHtmlEntities(trip.inclusions[0]),
+                  }}
+                  className="bg-primary/30 p-2 w-full mt-4 rounded-sm
+                    prose-li:before:mask-[url('/icons/greentick.png')]
+                    prose-li:before:rotate-360
+                     "
+                />
+              </div>
+
+              <div>
+                <h2 className="flex gap-4 items-center text-rose-900!">
+                  <LucideXCircle className="text-rose-900" /> Exlusions{" "}
+                </h2>
+                <div
+                  id="exclusions"
+                  dangerouslySetInnerHTML={{
+                    __html: decodeHtmlEntities(trip.exclusions[0]),
+                  }}
+                  className="w-full bg-rose-500/30 p-2 rounded-sm  mt-4 prose-li:before:mask-[url('/icons/cross.png')]"
+                />
+              </div>
+
               {trip.additionalInfo.length > 0 && (
                 <>
                   <h2
@@ -267,7 +284,6 @@ export default async function TripPage({
                     <LucideInfo className="size-8 text-primary" /> Trip
                     Information
                   </h2>
-                  {/*<Accordion collapsible type="single" className="w-full! mb-8">*/}
                   {trip.additionalInfo.map((info: any, idx: any) => {
                     return (
                       <AdditionalInfoRenderer
@@ -277,7 +293,6 @@ export default async function TripPage({
                       />
                     );
                   })}
-                  {/*</Accordion>*/}
                 </>
               )}
               <div id="faqs">

@@ -12,7 +12,7 @@ import {
   LucideHandPlatter,
   LucideSunMoon,
 } from "lucide-react";
-import PricingCardSidebar from "../card/pricing-card";
+import PricingCardSidebar from "@/components/card/pricing-card";
 
 interface TripOverviewProps {
   trip: TripData;

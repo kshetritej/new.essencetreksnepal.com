@@ -1,10 +1,11 @@
 import ContactForm from "@/components/booking-form";
 import { siteConfig } from "@/lib/siteConfig";
+import { Metadata } from "next";
 
 export const dynamic = "force-static";
 export const revalidate = 3600;
 
-export const metadata = {
+export const metadata: Metadata = {
   title: `Plan Your Adventure - ${siteConfig.name}`,
   description:
     "Plan your Himalayan adventure with. Booking trekking, tours, and adventure sports in Nepal through our easy online inquiry form.",
