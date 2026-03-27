@@ -1,15 +1,12 @@
 import { siteConfig } from "@/lib/siteConfig";
-import { LucideMail, LucideMapPin, LucidePhone } from "lucide-react";
+import { LucideMail, LucideMap, LucideMapPin, LucidePhone } from "lucide-react";
 import Link from "next/link";
 import { FaFacebook, FaYoutube, FaTiktok } from "react-icons/fa";
 import Image from "next/image";
-import { getCompanyInfos, getGuides } from "@/lib/api";
+import { getFooterItems } from "@/lib/api";
 
 export default async function Footer() {
-  const [guides, companyInfos] = await Promise.all([
-    getGuides(),
-    getCompanyInfos(),
-  ]);
+  const footerItems = await getFooterItems();
 
   const socials = [
     {
@@ -30,52 +27,54 @@ export default async function Footer() {
   ];
 
   return (
-    <div className="bg-black">
+    <div className="bg-linear-to-t from-black to-black/90">
       <div className="flex  flex-col-reverse gap-8 lg:grid lg:grid-cols-4 container mx-auto text-white py-12 px-4">
-        <div>
-          <h3 className="font-black text-xl">Company</h3>
-          <ul className="flex gap-2 flex-col">
-            {companyInfos.blogs.map((item: any) => (
-              <Link key={item.slug} href={`/${item.slug}`}>
-                <li>{item.title}</li>
+        {footerItems.data.items.map(
+          (item: {
+            url: string;
+            label: string;
+            children?: { url: string; label: string }[];
+          }) => (
+            <div key={item.url + item.label}>
+              <Link href={`/${item.url}`}>
+                <h3 className="font-black text-xl">{item.label}</h3>
               </Link>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h3 className="font-black text-xl">Travel Guides</h3>
-          <ul className="flex gap-2 flex-col">
-            {guides.blogs.map((item: any) => (
-              <Link key={item.slug} href={`/${item.slug}`}>
-                <li>{item.title}</li>
-              </Link>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h3 className="font-black text-xl">Useful Links</h3>
-          <ul className="flex gap-2 flex-col">
-            <li>About us</li>
-            <li>Why us?</li>
-            <li>Equipment Checklist</li>
-            <li>Legal Documents</li>
-          </ul>
-        </div>
+              {item.children && item.children.length > 0 && (
+                <ul className="flex gap-2 flex-col mt-2">
+                  {item.children.map(
+                    (subItem: { url: string; label: string }) => (
+                      <Link
+                        key={subItem.url + subItem.label}
+                        href={`/${subItem.url}`}
+                      >
+                        <li>{subItem.label}</li>
+                      </Link>
+                    ),
+                  )}
+                </ul>
+              )}
+            </div>
+          ),
+        )}
 
         <div className="flex flex-col gap-4">
           <h3 className="font-black text-xl">Essence Treks Nepal</h3>
           <div className="flex items-start md:items-center gap-4">
-            <LucideMapPin className="size-8 md:size-10 text-primary" />{" "}
+            <div>
+              <LucideMap className="size-4 md:size-6 text-primary" />{" "}
+            </div>
             {siteConfig.fullAddress}
           </div>
           <div className="flex items-center gap-4">
-            <LucidePhone className="size-4 md:size-6 text-primary" />{" "}
+            <div>
+              <LucidePhone className="size-4 md:size-6 text-primary" />{" "}
+            </div>
             {siteConfig.phoneNumbers[0].phone}
           </div>
           <div className="flex items-center gap-4">
-            <LucideMail className="size-4 md:size-6 text-primary" />{" "}
+            <div>
+              <LucideMail className="size-4 md:size-6 text-primary" />{" "}
+            </div>
             {siteConfig.email}
           </div>
         </div>

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { parseHTMLContent } from "@/lib/parse-html-content";
 import PackagesBlock from "@/components/packages-block";
 import { decodeHtmlEntities } from "@/lib/html-decoder";
+export const dynamic = "force-static";
 
 export async function generateMetadata({
   params,
