@@ -15,7 +15,7 @@ export default async function CategorySection() {
 
   return (
     <div className="bg-green-50/50">
-      <div className="flex gap-4 md:min-h-[60vh] items-center md:justify-center md:max-w-7xl mx-auto overflow-x-auto py-12 px-4 scroll-smooth">
+      <div className="flex gap-4 md:min-h-[40vh] items-center md:justify-center md:max-w-7xl mx-auto overflow-x-auto py-12 px-4 scroll-smooth">
         {categoriesExceptDefault.map((category: any, index: number) => (
           <CategoryCard
             key={category.id}
