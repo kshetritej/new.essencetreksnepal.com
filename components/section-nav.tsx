@@ -4,6 +4,7 @@ import {
   LucideCircleQuestionMark,
   LucideEye,
   LucideInfo,
+  LucideMap,
   LucideMapPin,
   LucideStar,
   LucideWallpaper,
@@ -18,14 +19,14 @@ interface Section {
 }
 
 const sections = [
-  { id: "overview", label: "Overview", icon: LucideWallpaper },
-  { id: "highlights", label: "Highlights", icon: LucideStar },
-  { id: "intro", label: "Introduction", icon: LucideEye },
-  { id: "itinerary", label: "Itinerary", icon: LucideMapPin },
-  { id: "inclusions", label: "Includes", icon: LucideCheck },
-  { id: "exclusions", label: "Excludes", icon: LucideX },
-  { id: "trip-info", label: "Trip Info", icon: LucideInfo },
-  { id: "faqs", label: "Faqs", icon: LucideCircleQuestionMark },
+  { id: "overview", label: "Overview", icon: <LucideWallpaper /> },
+  { id: "highlights", label: "Highlights", icon: <LucideStar /> },
+  { id: "itinerary", label: "Itinerary", icon: <LucideMapPin /> },
+  { id: "map", label: "Map", icon: <LucideMap /> },
+  { id: "inclusions", label: "Includes", icon: <LucideCheck /> },
+  { id: "exclusions", label: "Excludes", icon: <LucideX /> },
+  { id: "trip-info", label: "Trip Info", icon: <LucideInfo /> },
+  { id: "faqs", label: "Faqs", icon: <LucideCircleQuestionMark /> },
 ];
 
 export function SectionNavigation() {
@@ -87,7 +88,7 @@ export function SectionNavigation() {
   const handleNavClick = (id: string) => {
     const el = document.getElementById(id);
     if (!el) return;
-    const y = el.getBoundingClientRect().top + window.scrollY - offsetTop - 8;
+    const y = el.getBoundingClientRect().top + window.scrollY - offsetTop - 120;
     window.scrollTo({ top: y, behavior: "smooth" });
   };
 
@@ -118,6 +119,7 @@ export function SectionNavigation() {
                   : "border-transparent text-gray-500 hover:text-gray-900"
               }`}
             >
+              {section.icon}
               {section.label}
             </button>
           ))}

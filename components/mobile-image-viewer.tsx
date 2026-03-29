@@ -26,6 +26,7 @@ export default function MobileImageViewer({
             title={keywords[imageIndex]}
             height={1280}
             width={1920}
+            loading="eager"
             className="w-full min-h-100 object-cover object-center"
           />
         </figure>
