@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import GoogleRatingBadge from "../google-rating-badge";
 
 const OldHeroSection = () => {
   const [currentBanner, setCurrentBanner] = useState(0);
@@ -13,6 +14,9 @@ const OldHeroSection = () => {
     "/images/banner1.webp",
     "/images/banner2.webp",
     "/images/banner3.webp",
+    "/images/banner4.jpeg",
+    "/images/banner5.jpg",
+    "/images/banner6.webp",
   ];
 
   useEffect(() => {
@@ -55,17 +59,23 @@ const OldHeroSection = () => {
         />
       </motion.div>
 
-      <div className="relative z-30 flex flex-col items-center justify-center h-full text-white text-center px-4">
+      <div className="relative z-30 flex flex-col items-start justify-center h-full text-white px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
+          {/*<span className={cn(satisfy.className, "font-bold text-xl")}>
+            Since 2016 - Nepal&apos;s trusted Trekking Experts
+          </span>*/}
+          <div className="bg-black/20 backdrop-blur-md w-fit p-2 rounded-3xl flex gap-4 text-white">
+            <GoogleRatingBadge />
+          </div>
           <h1 className="text-4xl md:text-7xl font-bold mb-6 text-shadow-lg leading-tight">
             Discover Nepal&apos;s Hidden Treasures
           </h1>
-          <p className="text-lg md:text-2xl mb-10 max-w-2xl mx-auto text-shadow font-light">
+          <p className="text-lg md:text-2xl mb-10 max-w-2xl text-shadow font-light text-shadow-md">
             Experience the magic of the Himalayas with our expert guides and
             unforgettable adventures
           </p>
@@ -73,13 +83,15 @@ const OldHeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-4 "
           >
             <Link href="/booking">
               <Button>Start Your Adventure</Button>
             </Link>
             <Link href="/contact">
-              <Button variant={"secondary"}>Contact Us</Button>
+              <Button variant={"outline"} className="bg-transparent">
+                Contact Us
+              </Button>
             </Link>
           </motion.div>
         </motion.div>

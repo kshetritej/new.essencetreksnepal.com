@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
       fullUrl: true,
     },
   },
+
   async rewrites() {
     if (process.env.NODE_ENV === "production") {
       return [
@@ -21,6 +22,7 @@ const nextConfig: NextConfig = {
     return [];
   },
   images: {
+    qualities: [100, 75],
     remotePatterns: [
       {
         protocol: "https",

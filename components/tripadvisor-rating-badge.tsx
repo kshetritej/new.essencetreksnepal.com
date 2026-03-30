@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function TripAdvisorRatingBadge() {
   return (
-    <div className="flex gap-4 items-center md:items-center justify-center">
+    <div className="flex gap-4 items-center md:items-center ">
       <Image
         src={"/assets/tripadvisor.avif"}
         height={50}
@@ -12,7 +12,7 @@ export default function TripAdvisorRatingBadge() {
         alt="tripadvisor logo"
         className="h-auto w-auto"
       />
-      <span className="font-bold text-muted-foreground text-xs sm:text-base">
+      <span className="font-bold text-xs sm:text-base">
         {siteConfig.reviews.tripadvisor.rating} Rating out of 5 based on{" "}
         <Link
           href={

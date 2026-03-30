@@ -30,7 +30,7 @@ export default function TestimonialCard({
           My First Nepal Hiking Experience at Pikey Peak – A Memorable Adventure
         </p>*/}
         <div className="text-black">
-          <ScrollArea className="h-32">{review}</ScrollArea>
+          <ScrollArea className="h-32 italic">{review}</ScrollArea>
         </div>
         <div className="flex gap-4 items-center">
           <div className="rounded-full size-16 bg-slate-100 flex items-center justify-center text-black font-black">

@@ -148,6 +148,7 @@ export default async function TripPage({
                       alt={trip.keywords[0] || trip.title}
                       height={1280}
                       width={1920}
+                      loading="eager"
                       className="w-full h-full object-cover rounded-sm"
                     />
                   </div>

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Badge } from "./ui/badge";
-import { LucideClock3, LucideGauge } from "lucide-react";
+import { LucideClock3, LucideGauge, LucideTriangle } from "lucide-react";
 import Link from "next/link";
 
 export async function FeaturedTrip() {
@@ -28,7 +28,7 @@ export async function FeaturedTrip() {
         <div className="absolute -bottom-8 left-4">
           <div>
             <Badge variant={"secondary"} className="font-black px-4 py-2 mb-4">
-              <LucideGauge /> {activity.difficultyLevel}{" "}
+              <LucideTriangle /> {activity.difficultyLevel}
             </Badge>
             <div className="text-white  font-black flex flex-col gap-4">
               <div className="text-3xl md:text-5xl text-shadow-lg">

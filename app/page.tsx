@@ -35,6 +35,7 @@ export default async function Homepage() {
       <WhySection />
       <FeaturedTrip />
       <Testimonials />
+      <FeaturedSections featuredTags={firstFeatured} />
       <FeaturedSections featuredTags={secondFeatured} />
     </>
   );
