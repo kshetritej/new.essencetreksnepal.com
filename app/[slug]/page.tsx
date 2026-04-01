@@ -1,6 +1,6 @@
 import { MyBreadCrumb } from "@/components/etbreadcrumb";
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import Image from "next/image";
 import { parseHTMLContent } from "@/lib/parse-html-content";
 import PackagesBlock from "@/components/packages-block";
@@ -18,7 +18,16 @@ export async function generateMetadata({
   const URL = `${process.env.NEXT_PUBLIC_API_BASE_URL}/blogs/${slug}`;
 
   const response = await fetch(URL);
-  const blog = await response.json();
+
+  if (response.status === 404) {
+    const redirectedSlug =
+      response.url.split("/")[response.url.split("/").length - 1];
+
+    if (redirectedSlug && redirectedSlug !== slug) {
+      redirect(`/${redirectedSlug}`);
+    }
+    return notFound();
+  }
 
   if (!response.ok) {
     return {
@@ -26,6 +35,8 @@ export async function generateMetadata({
       description: "This blog post does not exist.",
     };
   }
+
+  const blog = await response.json();
 
   return {
     title: `${blog.metaTitle}`,
@@ -56,11 +67,22 @@ export default async function BlogSingle({
 
   const URL = `${process.env.NEXT_PUBLIC_API_BASE_URL}/blogs/${slug}`;
   const response = await fetch(URL);
-  const blog = await response.json();
+
+  if (response.status === 404) {
+    const redirectedSlug =
+      response.url.split("/")[response.url.split("/").length - 1];
+
+    if (redirectedSlug && redirectedSlug !== slug) {
+      redirect(`/${redirectedSlug}`);
+    }
+    return notFound();
+  }
 
   if (!response.ok) {
     return notFound();
   }
+
+  const blog = await response.json();
 
   const blocks = parseHTMLContent(decodeHtmlEntities(blog.content));
 

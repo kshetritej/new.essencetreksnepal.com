@@ -15,7 +15,7 @@ import { TripOverview } from "@/components/v0/trip-overview";
 import { decodeHtmlEntities } from "@/lib/html-decoder";
 import { Metadata } from "next";
 import Image from "next/image";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import Script from "next/script";
 import { Button } from "@/components/ui/button";
 import TripAdvisorRatingBadge from "@/components/tripadvisor-rating-badge";
@@ -32,9 +32,25 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const param = await params;
 
-  const data = await fetch(
+  const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_BASE_URL}/activity/slug/${param.slug}`,
-  ).then((res) => res.json());
+  );
+
+  if (res.status === 404) {
+    const redirectedSlug = res.url.split("/slug/")[1];
+
+    if (redirectedSlug && redirectedSlug !== param.slug) {
+      redirect(`/package/${redirectedSlug}`);
+    }
+
+    return notFound();
+  }
+
+  if (!res.ok) {
+    notFound();
+  }
+
+  const data = await res.json();
 
   const trip = data.data;
 
@@ -77,6 +93,20 @@ export default async function TripPage({
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_BASE_URL}/activity/slug/${slug}`,
   );
+
+  if (res.status === 404) {
+    const redirectedSlug = res.url.split("/slug/")[1];
+
+    if (redirectedSlug && redirectedSlug !== slug) {
+      redirect(`/package/${redirectedSlug}`);
+    }
+
+    return notFound();
+  }
+
+  if (!res.ok) {
+    notFound();
+  }
 
   if (res.status == 404) {
     return notFound();
