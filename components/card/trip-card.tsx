@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/button";
@@ -39,7 +41,7 @@ export default function TripCard({ trip }: { trip: any }) {
           </div>
           <div className="min-h-16 py-2">
             <div className="font-black md:text-2xl text-left max-w-sm">
-              {trip.title.split(":")[0]}
+              {trip.title.split(":")[0].substring(0, 30)}
             </div>
           </div>
           <div className="font-black text-2xl text-primary text-left flex justify-between">
@@ -49,7 +51,7 @@ export default function TripCard({ trip }: { trip: any }) {
             </div>
             <Button
               size={"sm"}
-              className="hidden group-hover:flex transition-all delay-200 duration-500 uppercase font-black cursor-pointer"
+              className="flex transition-all delay-200 duration-500 uppercase font-black cursor-pointer"
             >
               Know More <LucideArrowRight />
             </Button>
