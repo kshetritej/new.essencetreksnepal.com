@@ -5,7 +5,6 @@ import Image from "next/image";
 import { parseHTMLContent } from "@/lib/parse-html-content";
 import PackagesBlock from "@/components/packages-block";
 import { decodeHtmlEntities } from "@/lib/html-decoder";
-import { getFullImageUrl } from "@/lib/getFullImageUrl";
 export const dynamic = "force-static";
 
 export async function generateMetadata({
@@ -16,9 +15,11 @@ export async function generateMetadata({
   const param = await params;
   const slug = param.slug;
 
-  const URL = `${process.env.NEXT_PUBLIC_API_BASE_URL}/info-page/slug/${slug}`;
+  const URL = `${process.env.NEXT_PUBLIC_API_BASE_URL}/blogs/${slug}`;
 
   const response = await fetch(URL);
+
+  console.log("Response: ", response);
 
   if (response.status === 404) {
     const redirectedSlug =
@@ -37,15 +38,13 @@ export async function generateMetadata({
     };
   }
 
-  const resJSON = await response.json();
-  console.log("Response: ", resJSON);
-  const blog = resJSON.infoPage;
+  const blog = await response.json();
 
   return {
     title: `${blog.metaTitle}`,
     description: blog.metaDescription || undefined,
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_FRONTEND_BASE_URL}/blog/${blog.slug}`,
+      canonical: `${process.env.NEXT_PUBLIC_FRONTEND_BASE_URL}/blogs/${blog.slug}`,
     },
     openGraph: {
       title: blog.metaTitle,
@@ -68,7 +67,7 @@ export default async function BlogSingle({
   const param = await params;
   const slug = param.slug;
 
-  const URL = `${process.env.NEXT_PUBLIC_API_BASE_URL}/info-page/slug/${slug}`;
+  const URL = `${process.env.NEXT_PUBLIC_API_BASE_URL}/blogs/${slug}`;
   const response = await fetch(URL);
 
   if (response.status === 404) {
@@ -85,8 +84,7 @@ export default async function BlogSingle({
     return notFound();
   }
 
-  const resJSON = await response.json();
-  const blog = resJSON.infoPage;
+  const blog = await response.json();
 
   const blocks = parseHTMLContent(decodeHtmlEntities(blog.content));
 
@@ -153,7 +151,7 @@ export default async function BlogSingle({
               {/* Featured Image */}
               {blog.coverImage && (
                 <Image
-                  src={getFullImageUrl(blog?.coverImage)}
+                  src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${blog?.coverImage}`}
                   alt={blog?.imageAlt || blog?.title}
                   height={1280}
                   width={1920}
