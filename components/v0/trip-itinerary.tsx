@@ -24,7 +24,7 @@ interface TripItineraryProps {
 
 export function TripItinerary({ trip }: TripItineraryProps) {
   return (
-    <div className="space-y-8 max-w-4xl">
+    <div className="space-y-8 text-justify">
       <div className="space-y-4">
         <div
           className="mt-4"

@@ -15,7 +15,7 @@ export default function MobileImageViewer({
 }) {
   const [imageIndex, setImageIndex] = useState(0);
   return (
-    <div className="relative overflow-hidden object-cover">
+    <div className="relative overflow-hidden object-cover rounded-sm">
       {/*{images.map((image, index) => {*/}
       <Lightbox imageAlts={keywords} images={images}>
         <figure>
@@ -27,7 +27,7 @@ export default function MobileImageViewer({
             height={1280}
             width={1920}
             loading="eager"
-            className="w-full min-h-100 object-cover object-center"
+            className="w-full min-h-100 object-cover object-center rounded-sm"
           />
         </figure>
       </Lightbox>

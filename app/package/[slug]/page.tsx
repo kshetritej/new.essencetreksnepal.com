@@ -183,21 +183,23 @@ export default async function TripPage({
                     />
                   </div>
                   <div className="col-span-1 gap-2 hidden md:grid">
-                    {otherImages.map((imageUrl: string, index: number) => (
-                      <div
-                        key={imageUrl}
-                        className="rounded-sm overflow-hidden"
-                      >
-                        <Image
-                          alt={trip.keywords[index + 1] || trip.title + "2"}
-                          data-lightbox-index={index + 1}
-                          src={imageUrl}
-                          height={1280}
-                          width={1920}
-                          className="w-full object-cover rounded-sm"
-                        />
-                      </div>
-                    ))}
+                    {otherImages
+                      .slice(0, 2)
+                      .map((imageUrl: string, index: number) => (
+                        <div
+                          key={imageUrl}
+                          className="rounded-sm overflow-hidden"
+                        >
+                          <Image
+                            alt={trip.keywords[index + 1] || trip.title + "2"}
+                            data-lightbox-index={index + 1}
+                            src={imageUrl}
+                            height={1280}
+                            width={1920}
+                            className="w-full h-full object-cover rounded-sm"
+                          />
+                        </div>
+                      ))}
                   </div>
                   <Button
                     className="absolute top-2 left-2 opacity-45 font-black text-xs"
@@ -215,7 +217,7 @@ export default async function TripPage({
       {/*Content starts */}
       <SectionNavigation />
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-4 min-w-0">
+        <div className="grid md:grid-cols-4 gap-12 min-w-0">
           <div className="col-span-3 min-w-0!">
             <TripOverview trip={trip} />
             <div
