@@ -23,7 +23,7 @@ export default function TripCard({ trip }: { trip: any }) {
       >
         <div className="max-w-md overflow-hidden rounded-t-sm h-42 md:h-72">
           <Image
-            src={trip.images[0]}
+            src={trip.images[0] || null}
             alt={trip.keywords[0] || trip.title.split(/[:-]/)[0]}
             width={1280}
             height={720}

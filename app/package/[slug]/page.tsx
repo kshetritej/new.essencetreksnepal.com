@@ -171,7 +171,7 @@ export default async function TripPage({
             {trip.images && trip.images.length > 0 && (
               <Lightbox images={trip.images} imageAlts={trip.keywords || []}>
                 <div className="md:grid-cols-3 gap-2 container mx-auto relative hidden md:grid">
-                  <div className="rounded-sm overflow-hidden col-span-2">
+                  <div className="rounded-sm overflow-hidden col-span-2 max-h-[80vh]">
                     <Image
                       data-lightbox-index={0}
                       src={mainImage}
@@ -179,10 +179,10 @@ export default async function TripPage({
                       height={1280}
                       width={1920}
                       loading="eager"
-                      className="w-full h-full object-cover rounded-sm"
+                      className="w-full h-full object-cover rounded-sm object-center"
                     />
                   </div>
-                  <div className="col-span-1 gap-2 hidden md:grid">
+                  <div className="col-span-1 gap-2 hidden md:grid max-h-[80vh]">
                     {otherImages
                       .slice(0, 2)
                       .map((imageUrl: string, index: number) => (
@@ -196,7 +196,7 @@ export default async function TripPage({
                             src={imageUrl}
                             height={1280}
                             width={1920}
-                            className="w-full h-full object-cover rounded-sm"
+                            className="w-full h-full object-cover rounded-sm object-center"
                           />
                         </div>
                       ))}
