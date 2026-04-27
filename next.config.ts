@@ -39,6 +39,11 @@ const nextConfig: NextConfig = {
         hostname: "api.essencetreksnepal.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "essence-api.growfore.com",
+        pathname: "/**",
+      },
     ],
   },
 };
