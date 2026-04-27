@@ -24,6 +24,7 @@ import { Separator } from "@/components/ui/separator";
 import MobileImageViewer from "@/components/mobile-image-viewer";
 import { SectionNavigation } from "@/components/section-nav";
 import { safeParseSchema } from "@/lib/safeParseSchema";
+import { getFullImageUrl } from "@/lib/getFullImageUrl";
 
 export async function generateMetadata({
   params,
@@ -129,8 +130,9 @@ export default async function TripPage({
 
   const trip = jsonres.data;
 
-  const mainImage = trip.images[0];
-  const otherImages = trip.images.slice(1) || [];
+  const mainImage = getFullImageUrl(trip.images[0]);
+  const otherImages = trip.images.slice(1).map(getFullImageUrl);
+  const fullImageUrls = trip.images.map(getFullImageUrl);
   return (
     <main className="min-h-screen p-2 bg-primary/5">
       {/*Schema */}
@@ -164,12 +166,12 @@ export default async function TripPage({
           <>
             <div className="md:hidden">
               <MobileImageViewer
-                images={trip.images}
+                images={fullImageUrls}
                 keywords={trip.keywords}
               />
             </div>
             {trip.images && trip.images.length > 0 && (
-              <Lightbox images={trip.images} imageAlts={trip.keywords || []}>
+              <Lightbox images={fullImageUrls} imageAlts={trip.keywords || []}>
                 <div className="md:grid-cols-3 gap-2 container mx-auto relative hidden md:grid">
                   <div className="rounded-sm overflow-hidden col-span-2 max-h-[80vh]">
                     <Image

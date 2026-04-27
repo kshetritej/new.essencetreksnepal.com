@@ -5,6 +5,7 @@ import Image from "next/image";
 import { parseHTMLContent } from "@/lib/parse-html-content";
 import PackagesBlock from "@/components/packages-block";
 import { decodeHtmlEntities } from "@/lib/html-decoder";
+import { getFullImageUrl } from "@/lib/getFullImageUrl";
 export const dynamic = "force-static";
 
 export async function generateMetadata({
@@ -151,7 +152,7 @@ export default async function BlogSingle({
               {/* Featured Image */}
               {blog.coverImage && (
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${blog?.coverImage}`}
+                  src={getFullImageUrl(blog?.coverImage)}
                   alt={blog?.imageAlt || blog?.title}
                   height={1280}
                   width={1920}

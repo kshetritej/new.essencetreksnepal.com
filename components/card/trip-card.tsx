@@ -6,6 +6,7 @@ import { Button } from "../ui/button";
 import { LucideArrowRight, LucideClock, LucideGauge } from "lucide-react";
 import { Badge } from "../ui/badge";
 import { motion } from "framer-motion";
+import { getFullImageUrl } from "@/lib/getFullImageUrl";
 
 export default function TripCard({ trip }: { trip: any }) {
   return (
@@ -23,7 +24,7 @@ export default function TripCard({ trip }: { trip: any }) {
       >
         <div className="max-w-md overflow-hidden rounded-t-sm h-42 md:h-72">
           <Image
-            src={trip.images[0] || null}
+            src={trip.images?.[0] ? getFullImageUrl(trip.images[0]) : ""}
             alt={trip.keywords[0] || trip.title.split(/[:-]/)[0]}
             width={1280}
             height={720}

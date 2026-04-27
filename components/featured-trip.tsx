@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Badge } from "./ui/badge";
 import { LucideClock3, LucideGauge, LucideTriangle } from "lucide-react";
 import Link from "next/link";
+import { getFullImageUrl } from "@/lib/getFullImageUrl";
 
 export async function FeaturedTrip() {
   const res = await fetch(
@@ -19,7 +20,7 @@ export async function FeaturedTrip() {
     >
       <div className="relative max-w-5xl mx-auto py-8">
         <Image
-          src={activity.images[0]}
+          src={getFullImageUrl(activity.images[0])}
           width={1280}
           height={720}
           alt=""

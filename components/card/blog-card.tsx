@@ -8,6 +8,7 @@ import { Separator } from "@/components/ui/separator";
 import { Calendar } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { getFullImageUrl } from "@/lib/getFullImageUrl";
 
 export function BlogCard({ blog }: any) {
   const { title, slug, content, coverImage, createdAt } = blog;
@@ -25,7 +26,7 @@ export function BlogCard({ blog }: any) {
         {coverImage && (
           <div className="aspect-video overflow-hidden bg-muted">
             <Image
-              src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${coverImage}`}
+              src={getFullImageUrl(coverImage)}
               alt={title}
               width={200}
               height={200}

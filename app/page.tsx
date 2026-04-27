@@ -30,7 +30,7 @@ export default async function Homepage() {
     <>
       {/*<HomeHero />*/}
       <OldHeroSection />
-      <CategorySection />
+      {/*<CategorySection />*/}
       <FeaturedSections featuredTags={firstFeatured} />
       <WhySection />
       <FeaturedTrip />

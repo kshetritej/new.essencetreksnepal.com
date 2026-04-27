@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getFullImageUrl } from "@/lib/getFullImageUrl";
 export interface TeamCardProps {
   image?: string;
   name: string;
@@ -16,7 +17,7 @@ export default function TeamCard({
     <div className="grid md:grid-cols-4 gap-4 items-start justify-start text-center bg-white w-full p-8 rounded-sm">
       <div className="h-42 w-42 overflow-hidden rounded-sm col-span-1">
         <Image
-          src={image ?? "/assets/everest.jpg"}
+          src={image ? getFullImageUrl(image) : "/assets/everest.jpg"}
           width={720}
           height={420}
           alt="Everest"
