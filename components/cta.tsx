@@ -22,9 +22,7 @@ export default function Cta() {
         Explore terrain, depth, and the quiet art of the mountains.
       </div>
       <Link href={"/booking"} className="z-9">
-        <Button variant={""} size={"lg"}>
-          Book Now
-        </Button>
+        <Button size={"lg"}>Book Now</Button>
       </Link>
     </div>
   );
