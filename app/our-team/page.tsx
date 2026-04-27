@@ -1,7 +1,7 @@
 import TeamCard from "@/components/card/member-card";
 
 export default async function OurTeam() {
-  const res = await fetch(`https://api.essencetreksnepal.com/api/v1/team`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/team`);
 
   const json = await res.json();
   const data = json.data;

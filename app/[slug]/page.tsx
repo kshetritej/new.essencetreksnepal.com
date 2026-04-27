@@ -6,6 +6,7 @@ import { parseHTMLContent } from "@/lib/parse-html-content";
 import PackagesBlock from "@/components/packages-block";
 import { decodeHtmlEntities } from "@/lib/html-decoder";
 import { getFullImageUrl } from "@/lib/getFullImageUrl";
+import TocCard from "@/components/toc-card";
 export const dynamic = "force-static";
 
 export async function generateMetadata({
@@ -185,7 +186,7 @@ export default async function BlogSingle({
               {/*<BlogRenderer blog={blog?.content} />*/}
             </div>
           </div>
-          {/*<TocCard />*/}
+          <TocCard />
         </div>
       </section>
     </div>
