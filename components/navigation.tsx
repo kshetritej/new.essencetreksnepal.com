@@ -95,7 +95,7 @@ function DesktopNavItem({ item }: { item: MenuItem }) {
   const dropdown = hasChildren(item);
 
   return (
-    <div className="group">
+    <div className="group z-999">
       {dropdown ? (
         <button className="flex items-center gap-1 px-4 py-3 font-semibold  text-white hover:text-primary group-hover:text-primary transition-colors">
           {item.label}
