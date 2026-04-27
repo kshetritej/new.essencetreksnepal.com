@@ -13,7 +13,9 @@ export default function Logo() {
           height={40}
           className="rounded-full object-cover h-auto w-auto"
         />
-        <span className="hidden md:block uppercase">{siteConfig.name}</span>
+        <span className="hidden md:block uppercase text-black">
+          {siteConfig.name}
+        </span>
       </Link>
     </div>
   );

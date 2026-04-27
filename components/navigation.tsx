@@ -97,7 +97,7 @@ function DesktopNavItem({ item }: { item: MenuItem }) {
   return (
     <div className="group z-999">
       {dropdown ? (
-        <button className="flex items-center gap-1 px-4 py-3 font-semibold  text-white hover:text-primary group-hover:text-primary transition-colors">
+        <button className="flex items-center gap-1 px-4 py-3 font-semibold   hover:text-primary group-hover:text-primary transition-colors">
           {item.label}
           <ChevronDown
             size={16}
@@ -107,7 +107,7 @@ function DesktopNavItem({ item }: { item: MenuItem }) {
       ) : (
         <Link
           href={item.url || "#"}
-          className="block px-4 py-3 font-semibold text-sm text-white hover:text-primary transition-colors"
+          className="block px-4 py-3 font-semibold text-sm  hover:text-primary transition-colors"
         >
           {item.label}
         </Link>
@@ -123,9 +123,9 @@ export async function Navigation() {
   const items = await fetchMenu();
 
   return (
-    <nav className="bg-black">
+    <nav>
       {/* Top bar */}
-      <div className=" bg-white  px-4 md:px-8 py-3 flex flex-wrap justify-center md:justify-end items-center gap-4 md:gap-8 text-xs md:text-sm">
+      <div className="bg-white px-4 md:px-8 py-3 flex flex-wrap justify-center md:justify-end items-center gap-4 md:gap-8 text-xs md:text-sm">
         <div className="container px-4 md:px-12 mx-auto flex items-end gap-4 justify-end">
           <Link
             href={`https://api.whatsapp.com/send/?phone=${siteConfig.whatsAppNumber}&type=phone_number&app_absent=0`}

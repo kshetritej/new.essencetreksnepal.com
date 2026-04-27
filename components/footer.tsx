@@ -1,5 +1,5 @@
 import { siteConfig } from "@/lib/siteConfig";
-import { LucideMail, LucideMap, LucideMapPin, LucidePhone } from "lucide-react";
+import { LucideMail, LucideMap, LucidePhone } from "lucide-react";
 import Link from "next/link";
 import { FaFacebook, FaYoutube, FaTiktok } from "react-icons/fa";
 import Image from "next/image";
@@ -61,19 +61,19 @@ export default async function Footer() {
           <h3 className="font-black text-xl">Essence Treks Nepal</h3>
           <div className="flex items-start md:items-center gap-4">
             <div>
-              <LucideMap className="size-4 md:size-6 text-primary" />{" "}
+              <LucideMap className="size-4 md:size-6 text-white" />{" "}
             </div>
             {siteConfig.fullAddress}
           </div>
           <div className="flex items-center gap-4">
             <div>
-              <LucidePhone className="size-4 md:size-6 text-primary" />{" "}
+              <LucidePhone className="size-4 md:size-6 text-white" />{" "}
             </div>
             {siteConfig.phoneNumbers[0].phone}
           </div>
           <div className="flex items-center gap-4">
             <div>
-              <LucideMail className="size-4 md:size-6 text-primary" />{" "}
+              <LucideMail className="size-4 md:size-6 text-white" />{" "}
             </div>
             {siteConfig.email}
           </div>

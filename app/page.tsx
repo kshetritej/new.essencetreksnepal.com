@@ -1,7 +1,6 @@
 import { FeaturedTrip } from "@/components/featured-trip";
 import CategorySection from "@/components/sections/category-section";
 import FeaturedSections from "@/components/sections/featuered-sections";
-import HomeHero from "@/components/sections/home-hero";
 import OldHeroSection from "@/components/sections/old-hero";
 import WhySection from "@/components/sections/why-section";
 import Testimonials from "@/components/testimonials";
@@ -30,7 +29,7 @@ export default async function Homepage() {
     <>
       {/*<HomeHero />*/}
       <OldHeroSection />
-      {/*<CategorySection />*/}
+      <CategorySection />
       <FeaturedSections featuredTags={firstFeatured} />
       <WhySection />
       <FeaturedTrip />

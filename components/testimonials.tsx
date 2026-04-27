@@ -30,7 +30,7 @@ export default async function Testimonials() {
           backgroundPosition: "bottom center",
         }}
       />
-      <div className="absolute inset-0 bg-emerald-900/80 z-0 pointer-events-none" />
+      <div className="absolute inset-0 bg-blue-900/80 z-0 pointer-events-none" />
       <div className="relative z-20">
         <div className="text-xl md:text-3xl text-center font-black uppercase">
           What Our Trekkers Say
