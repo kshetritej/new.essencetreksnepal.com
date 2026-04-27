@@ -22,9 +22,10 @@ export const metadata: Metadata = {
 };
 
 export default async function BookingPage() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/activity`, {
-    cache: "force-cache",
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/activity?page=1&limit=100`,
+    { cache: "force-cache" },
+  );
 
   const json = await res.json();
 
