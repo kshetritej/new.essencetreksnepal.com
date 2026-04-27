@@ -27,7 +27,7 @@ export default async function Footer() {
   ];
 
   return (
-    <div className="bg-linear-to-t from-black to-black/90">
+    <div className="bg-linear-to-t from-primary to-primary/90">
       <div className="flex  flex-col-reverse gap-8 lg:grid lg:grid-cols-4 container mx-auto text-white py-12 px-4">
         {footerItems.data.items.map(
           (item: {
@@ -36,7 +36,7 @@ export default async function Footer() {
             children?: { url: string; label: string }[];
           }) => (
             <div key={item.url + item.label}>
-              <Link href={`/${item.url}`}>
+              <Link href={item.url}>
                 <h3 className="font-black text-xl">{item.label}</h3>
               </Link>
               {item.children && item.children.length > 0 && (
@@ -45,7 +45,7 @@ export default async function Footer() {
                     (subItem: { url: string; label: string }) => (
                       <Link
                         key={subItem.url + subItem.label}
-                        href={`/${subItem.url}`}
+                        href={subItem.url}
                       >
                         <li>{subItem.label}</li>
                       </Link>
@@ -79,7 +79,7 @@ export default async function Footer() {
           </div>
         </div>
       </div>
-      <div className="bg-amber-50">
+      <div className="bg-accent">
         <div className="container mx-auto py-8 grid md:grid-cols-2 gap-4 px-4 text-center items-center justify-center">
           <div className="flex flex-col justify-center items-center">
             <div className="font-black text-lg">Find us on</div>
