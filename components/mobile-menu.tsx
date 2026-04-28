@@ -29,11 +29,7 @@ export function MobileMenu({ items }: MobileMenuProps) {
         aria-expanded={isOpen}
         className="md:hidden hover:bg-gray-100 rounded-lg transition-colors"
       >
-        {isOpen ? (
-          <X size={24} className="text-white" />
-        ) : (
-          <Menu className="text-white size-8" />
-        )}
+        {isOpen ? <X size={24} className="" /> : <Menu className="size-8" />}
       </Button>
 
       {/* Slide-down panel */}
