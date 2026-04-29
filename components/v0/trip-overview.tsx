@@ -111,9 +111,10 @@ export function TripOverview({ trip }: TripOverviewProps) {
 
       <div className="md:hidden">
         <PricingCardSidebar
+          slug={trip.slug}
+          title={trip.title}
           price={trip.price}
           maxPrice={trip.price * 0.2}
-          title={trip.title}
         />
       </div>
     </div>
