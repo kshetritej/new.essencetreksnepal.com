@@ -14,13 +14,24 @@ type MenuItem = {
 interface MobileMenuItemProps {
   item: MenuItem;
   level?: number;
+  onNavigate?: () => void;
 }
 
-export function MobileMenuItem({ item, level = 0 }: MobileMenuItemProps) {
+export function MobileMenuItem({
+  item,
+  level = 0,
+  onNavigate,
+}: MobileMenuItemProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const hasChildren = Array.isArray(item.children) && item.children.length > 0;
 
   const indent = level > 0 ? `pl-${4 + level * 4}` : "px-4";
+
+  const handleLinkClick = () => {
+    if (onNavigate) {
+      onNavigate();
+    }
+  };
 
   return (
     <div className="border-b border-gray-200">
@@ -44,6 +55,7 @@ export function MobileMenuItem({ item, level = 0 }: MobileMenuItemProps) {
         ) : (
           <Link
             href={item.url || "#"}
+            onClick={handleLinkClick}
             className={`flex-1 block ${indent} py-3 font-semibold text-gray-900  hover:text-orange-600 transition-colors`}
           >
             {item.label}
@@ -54,7 +66,12 @@ export function MobileMenuItem({ item, level = 0 }: MobileMenuItemProps) {
       {isExpanded && hasChildren && (
         <div className="bg-gray-50 pl-6">
           {item.children.map((child) => (
-            <MobileMenuItem key={child.id} item={child} level={level + 1} />
+            <MobileMenuItem
+              key={child.id}
+              item={child}
+              level={level + 1}
+              onNavigate={onNavigate}
+            />
           ))}
         </div>
       )}

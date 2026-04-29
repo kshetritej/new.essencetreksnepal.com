@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { MobileMenuItem } from "./mobile-menu-item";
 import { Button } from "./ui/button";
+import { Dispatch, SetStateAction } from "react";
 
 type MenuItem = {
   id: string;
@@ -14,11 +14,17 @@ type MenuItem = {
 
 interface MobileMenuProps {
   items: MenuItem[];
+  isOpen: boolean;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
+  onNavigate: () => void;
 }
 
-export function MobileMenu({ items }: MobileMenuProps) {
-  const [isOpen, setIsOpen] = useState(false);
-
+export function MobileMenu({
+  items,
+  isOpen,
+  setIsOpen,
+  onNavigate,
+}: MobileMenuProps) {
   return (
     <>
       {/* Hamburger button */}
@@ -36,7 +42,12 @@ export function MobileMenu({ items }: MobileMenuProps) {
       {isOpen && (
         <div className="md:hidden fixed inset-x-0 top-[calc(var(--nav-height,96px))] bg-white border-t border-gray-200 z-50 overflow-y-auto max-h-[calc(100vh-112px)]">
           {items.map((item) => (
-            <MobileMenuItem key={item.id} item={item} level={0} />
+            <MobileMenuItem
+              key={item.id}
+              item={item}
+              level={0}
+              onNavigate={onNavigate}
+            />
           ))}
         </div>
       )}

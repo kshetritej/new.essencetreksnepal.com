@@ -8,7 +8,6 @@ import Footer from "@/components/footer";
 import Cta from "@/components/cta";
 import BackToTop from "@/components/back-to-top";
 import FloatingWhatsAppIcon from "@/components/floating-whatsapp";
-import ChatWidget from "@/components/chat-widget";
 
 export const metadata: Metadata = {
   title: "Essence Treks",
