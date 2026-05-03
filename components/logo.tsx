@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Logo() {
   return (
-    <div className="font-bold text-lg">
+    <div className="font-bold text-lg px-4 md:px-0fa">
       <Link href={"/"} className="flex gap-1 items-center text-white">
         <Image
           src={siteConfig.logo}

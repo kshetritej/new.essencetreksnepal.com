@@ -153,7 +153,7 @@ export function MenuController({ items }: MenuControllerProps) {
 
       {/* Main bar */}
       <div>
-        <div className="container mx-auto px-4 md:px-8 py-1 flex items-center justify-between ">
+        <div className="container mx-auto  py-1 flex items-center justify-between ">
           <div className="shrink-0">
             <Logo />
           </div>

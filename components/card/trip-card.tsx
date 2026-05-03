@@ -20,9 +20,9 @@ export default function TripCard({ trip }: { trip: any }) {
           opacity: 100,
           scale: 1,
         }}
-        className="p-4 min-w-64 md:min-w-sm hover:translate-y-0.5 duration-300 relative h-120 rounded-2xl overflow-hidden shadow-lg group cursor-pointer"
+        className="p-4 min-w-64 md:min-w-sm hover:translate-y-0.5 duration-300 relative  rounded-2xl overflow-hidden shadow-lg group cursor-pointer"
       >
-        <div className="max-w-md overflow-hidden rounded-t-sm h-42 md:h-72">
+        <div className="max-w-md overflow-hidden rounded-t-sm  md:h-72">
           <Image
             src={trip.images?.[0] ? getFullImageUrl(trip.images[0]) : ""}
             alt={trip.keywords[0] || trip.title.split(/[:-]/)[0]}
@@ -40,7 +40,7 @@ export default function TripCard({ trip }: { trip: any }) {
               <LucideGauge /> {trip.difficultyLevel}
             </Badge>
           </div>
-          <div className="min-h-16 py-2">
+          <div className="h-24 py-2">
             <div className="font-black text-base md:text-2xl text-left max-w-sm">
               {trip.title.split(":")[0].substring(0, 30)}
             </div>
