@@ -42,7 +42,7 @@ const ContactPage = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl font-extrabold ">Contact Us</h1>
-          <p className="text-lg mt-4 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg mt-4 max-w-2xl mx-auto">
             Fill out the form below and we&apos;ll receive your message directly
             on WhatsApp!
           </p>

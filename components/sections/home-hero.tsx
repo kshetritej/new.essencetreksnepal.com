@@ -29,7 +29,7 @@ export default function HomeHero() {
           >
             Best treks in Nepal
           </p>
-          <h1 className="uppercase font-black  text-3xl lg:text-5xl mb-4 text-shadow-xs text-shadow-black">
+          <h1 className="uppercase font-black  text-2xl md:text-3xl lg:text-5xl mb-4 text-shadow-xs text-shadow-black">
             Essence Treks Nepal
           </h1>
           <HeroSearch />

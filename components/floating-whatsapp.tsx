@@ -1,14 +1,20 @@
 "use client";
 
 import { siteConfig } from "@/lib/siteConfig";
-import { FloatingWhatsApp } from "react-floating-whatsapp";
+import { FloatingWhatsApp } from "@digicroz/react-floating-whatsapp";
 
 export default function FloatingWhatsAppIcon() {
   return (
-    <div className="absolute bottom-2! left-4!">
+    <div>
       <FloatingWhatsApp
+        className=""
         phoneNumber={siteConfig.whatsAppNumber}
         avatar={"/favicon.ico"}
+        buttonStyle={{
+          position: "fixed",
+          bottom: "72px",
+          right: "16px",
+        }}
         accountName={siteConfig.name}
       />
     </div>

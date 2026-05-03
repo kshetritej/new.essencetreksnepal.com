@@ -23,10 +23,10 @@ export function TripFaqs({ trip }: TripFaqsProps) {
       <Accordion type="single" collapsible className="w-full">
         {trip.faqs.map((faq, index) => (
           <AccordionItem key={index} value={`faq-${index}`}>
-            <AccordionTrigger className="hover:no-underline font-bold text-md p-0">
+            <AccordionTrigger className="hover:no-underline font-bold text-base md:text-lg p-0">
               {faq.question}
             </AccordionTrigger>
-            <AccordionContent className="text-base">
+            <AccordionContent className="text-base md:text-lg">
               <div
                 dangerouslySetInnerHTML={{
                   __html: decodeHtmlEntities(faq.answer),

@@ -9,7 +9,7 @@ import {
 const ContactInfo = () => {
   return (
     <div className="rounded-xl shadow-2xl p-8">
-      <h2 className="text-2xl font-bold mb-8 border-b  pb-4">
+      <h2 className="text-xl md:text-2xl font-bold mb-8 border-b  pb-4">
         Contact Information
       </h2>
 
@@ -73,7 +73,7 @@ const ContactInfo = () => {
 
       {/* Social Media Links */}
       <div className="mt-8">
-        <h3 className="text-xl font-semibold mb-4">Connect With Us</h3>
+        <h3 className="text-base md:text-xl font-semibold mb-4">Connect With Us</h3>
         <div className="flex flex-wrap gap-4">
           <a
             href="https://www.facebook.com/essencetreksinnepal/#"

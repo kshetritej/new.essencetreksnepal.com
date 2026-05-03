@@ -21,7 +21,7 @@ export default function WhySection() {
         <div className="grid-cols-2 rounded-xs overflow-hidden hidden md:grid">
           <div className="bg-primary/70 p-8 flex flex-col gap-2 items-center justify-center">
             <LucideBriefcase className="text-white size-16" />
-            <span className="font-bold text-white text-lg">
+            <span className="font-bold text-white text-sm md:text-lg">
               Seamless Logistics
             </span>
             <p className="text-white text-center">No hassles, no delays.</p>
@@ -30,7 +30,7 @@ export default function WhySection() {
           {/*item 2*/}
           <div className="bg-emerald-800/50 p-4 flex flex-col gap-2 items-center justify-center">
             <LucideCalendar className="text-white size-16" />
-            <span className="font-bold text-white text-lg">Fast Booking</span>
+            <span className="font-bold text-white text-sm md:text-lg">Fast Booking</span>
             <p className="text-white text-center">
               Quick, hassle-free, instant reservations.
             </p>
@@ -39,7 +39,7 @@ export default function WhySection() {
           {/*item 3*/}
           <div className="bg-emerald-800/80 p-4 flex flex-col gap-2 items-center justify-center">
             <LucideDollarSign className="text-white size-16" />
-            <span className="font-bold text-white text-lg">
+            <span className="font-bold text-white text-sm md:text-lg">
               Competitive Pricing
             </span>
             <p className="text-white text-center">
@@ -50,7 +50,7 @@ export default function WhySection() {
           {/*Item 4*/}
           <div className="bg-primary p-4 flex flex-col gap-2 items-center justify-center">
             <LucideCircleQuestionMark className="text-white size-16" />
-            <span className="font-bold text-white text-lg">
+            <span className="font-bold text-white text-sm md:text-lg">
               24/7 Customer Support
             </span>
             <p className="text-white text-center">
@@ -59,7 +59,7 @@ export default function WhySection() {
           </div>
         </div>
         <div className="max-w-3xl flex flex-col gap-1 space-y-2">
-          <div className="text-foreground text-3xl font-black">
+          <div className="text-foreground text-xl md:text-3xl font-black">
             Why to choose Essence Treks Nepal?
           </div>
           <div className="text-base">

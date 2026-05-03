@@ -13,8 +13,11 @@ export default function Logo() {
           height={40}
           className="rounded-full object-cover h-auto w-auto"
         />
-        <span className="hidden md:block uppercase text-black">
-          {siteConfig.name}
+        <span className="uppercase text-black text-xs md:hidden">
+          Essence Treks <br /> Nepal
+        </span>
+        <span className="uppercase text-black text-xl hidden md:block">
+          Essence Treks Nepal
         </span>
       </Link>
     </div>

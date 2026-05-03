@@ -25,7 +25,7 @@ export function MobileMenuItem({
   const [isExpanded, setIsExpanded] = useState(false);
   const hasChildren = Array.isArray(item.children) && item.children.length > 0;
 
-  const indent = level > 0 ? `pl-${4 + level * 4}` : "px-4";
+  const indent = level > 0 ? `pl-${12 + level * 4}` : "px-4";
 
   const handleLinkClick = () => {
     if (onNavigate) {

@@ -41,11 +41,11 @@ export default function TripCard({ trip }: { trip: any }) {
             </Badge>
           </div>
           <div className="min-h-16 py-2">
-            <div className="font-black md:text-2xl text-left max-w-sm">
+            <div className="font-black text-base md:text-2xl text-left max-w-sm">
               {trip.title.split(":")[0].substring(0, 30)}
             </div>
           </div>
-          <div className="font-black text-2xl text-primary text-left flex justify-between">
+          <div className="font-black text-lg md:text-2xl text-primary text-left flex justify-between">
             <div>
               US ${trip.price}{" "}
               <span className="text-sm font-bold text-black">/per person</span>

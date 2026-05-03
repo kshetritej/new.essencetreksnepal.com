@@ -6,18 +6,17 @@ export default async function BlogPage() {
   );
 
   const resJSON = await res.json();
-  console.log("RESJSON:", resJSON);
 
   const blogs = resJSON.blogs;
   const total = resJSON.pagination?.total;
-
-  console.log("BLogs: ", blogs);
 
   return (
     <div className="container mx-auto px-4 py-10 max-w-6xl">
       {/* Page Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight">Travel Guides</h1>
+        <h1 className="text-2xl md:text-3xl font-bold tracking-tight">
+          Travel Guides
+        </h1>
         <p className="text-muted-foreground mt-1">
           {total} article
           {total !== 1 ? "s" : ""} to inspire your next adventure
@@ -33,7 +32,7 @@ export default async function BlogPage() {
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center py-24 text-muted-foreground">
-          <p className="text-lg">No articles found.</p>
+          <p className="text-base md:text-lg">No articles found.</p>
         </div>
       )}
     </div>

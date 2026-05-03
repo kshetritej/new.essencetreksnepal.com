@@ -130,7 +130,7 @@
 
 /* Table Styles */
 table {
-    width: 100%;
+    /*width: 100%;*/
     border-collapse: collapse;
     margin: 1.5rem 0;
     background-color: white;
@@ -154,7 +154,7 @@ th {
 }
 td {
     padding: 1rem 1.5rem;
-    font-size: 1.25rem;
+    font-size: 1rem;
 }
 
 table td:first-child {
@@ -165,7 +165,7 @@ table td:first-child {
 /* Mobile responsive */
 @media (max-width: 640px) {
     table {
-        font-size: 0.875rem;
+        font-size: 0.75rem;
     }
 
     table th,

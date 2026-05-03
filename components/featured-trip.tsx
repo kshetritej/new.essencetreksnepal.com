@@ -42,7 +42,7 @@ export async function FeaturedTrip() {
                   </div>
                   <div>
                     <p className="font-bold">Duration</p>
-                    <p className="font-medium text-md md:text-xl">
+                    <p className="font-medium text-base md:text-xl">
                       {activity.duration}
                     </p>
                   </div>
@@ -50,7 +50,7 @@ export async function FeaturedTrip() {
 
                 <div>
                   <p className="font-normal">Price starts from</p>
-                  <p className="text-md md:text-xl text-primary font-black">
+                  <p className="text-base md:text-xl text-primary font-black">
                     US $<span>{activity.price}</span>
                   </p>
                 </div>

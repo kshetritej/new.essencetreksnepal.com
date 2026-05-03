@@ -29,7 +29,7 @@ export default function TourCard({
       </div>
 
       <div className="p-6">
-        <h3 className="text-xl font-serif font-bold mb-2">{title}</h3>
+        <h3 className="text-base md:text-xl font-serif font-bold mb-2">{title}</h3>
         <p className="text-sm text-gray-600 mb-4">{description}</p>
 
         <div className="grid grid-cols-2 gap-3 text-sm text-gray-700 mb-4">
@@ -55,7 +55,7 @@ export default function TourCard({
         </div>
 
         <div className="flex items-center justify-between mt-4">
-          <p className="text-lg font-bold text-gray-600">
+          <p className="text-sm md:text-lg font-bold text-gray-600">
             NPR {price.toLocaleString()}
             <span className="text-sm text-gray-500"> / person</span>
           </p>

@@ -3,7 +3,7 @@
 import { Menu, X } from "lucide-react";
 import { MobileMenuItem } from "./mobile-menu-item";
 import { Button } from "./ui/button";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 
 type MenuItem = {
   id: string;
@@ -25,6 +25,17 @@ export function MobileMenu({
   setIsOpen,
   onNavigate,
 }: MobileMenuProps) {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   return (
     <>
       {/* Hamburger button */}
@@ -38,16 +49,19 @@ export function MobileMenu({
         {isOpen ? <X size={24} className="" /> : <Menu className="size-8" />}
       </Button>
 
+      {/* Overlay */}
+      {isOpen && (
+        <div
+          className="md:hidden fixed inset-x-0 top-[calc(var(--nav-height,54px))] bottom-0 bg-black/50 z-40"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+
       {/* Slide-down panel */}
       {isOpen && (
-        <div className="md:hidden fixed inset-x-0 top-[calc(var(--nav-height,96px))] bg-white border-t border-gray-200 z-50 overflow-y-auto max-h-[calc(100vh-112px)]">
+        <div className="md:hidden fixed inset-x-0 top-[calc(var(--nav-height,54px))] bg-white border-t border-gray-200 z-50 overflow-y-auto max-h-[calc(100vh-112px)]">
           {items.map((item) => (
-            <MobileMenuItem
-              key={item.id}
-              item={item}
-              level={0}
-              onNavigate={onNavigate}
-            />
+            <MobileMenuItem key={item.id} item={item} onNavigate={onNavigate} />
           ))}
         </div>
       )}

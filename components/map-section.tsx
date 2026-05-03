@@ -2,7 +2,7 @@ const MapSection = () => {
   return (
     <div className="mt-12 rounded-xl shadow-2xl overflow-hidden">
       <div className="p-6">
-        <h2 className="text-xl font-bold  mb-4">Our Location</h2>
+        <h2 className="text-base md:text-xl font-bold  mb-4">Our Location</h2>
         <p className="mb-4">
           Essence Tours and Travels & Treks and Expedition Pvt. LTD.
         </p>

@@ -49,9 +49,9 @@ export default function TocCard() {
     >
       <AccordionItem value="item-1">
         <AccordionTrigger>
-          <h3 className="font-semibold text-xl">In this page:</h3>
+          <h3 className="font-semibold text-base md:text-xl">In this page:</h3>
         </AccordionTrigger>
-        <AccordionContent className="flex flex-col gap-4 text-balance text-lg">
+        <AccordionContent className="flex flex-col gap-4 text-balance text-sm md:text-lg">
           <ScrollArea className="h-72">
             <ul className="space-y-1">
               {Object.entries(headings).map(([id, text]) => (

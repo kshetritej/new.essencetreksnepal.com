@@ -37,7 +37,7 @@ export default async function Footer() {
           }) => (
             <div key={item.url + item.label}>
               <Link href={item.url}>
-                <h3 className="font-black text-xl">{item.label}</h3>
+                <h3 className="font-black text-base md:text-xl">{item.label}</h3>
               </Link>
               {item.children && item.children.length > 0 && (
                 <ul className="flex gap-2 flex-col mt-2">
@@ -58,7 +58,7 @@ export default async function Footer() {
         )}
 
         <div className="flex flex-col gap-4">
-          <h3 className="font-black text-xl">Essence Treks Nepal</h3>
+          <h3 className="font-black text-base md:text-xl">Essence Treks Nepal</h3>
           <div className="flex items-start md:items-center gap-4">
             <div>
               <LucideMap className="size-4 md:size-6 text-white" />{" "}
@@ -82,7 +82,7 @@ export default async function Footer() {
       <div className="bg-accent">
         <div className="container mx-auto py-8 grid md:grid-cols-2 gap-4 px-4 text-center items-center justify-center">
           <div className="flex flex-col justify-center items-center">
-            <div className="font-black text-lg">Find us on</div>
+            <div className="font-black text-sm md:text-lg">Find us on</div>
             <div className="flex gap-4 mt-4">
               {socials.map((social, index) => {
                 return (
@@ -94,7 +94,7 @@ export default async function Footer() {
             </div>
           </div>
           <div className="flex flex-col justify-center items-center">
-            <div className="font-black text-lg">Associated With</div>
+            <div className="font-black text-sm md:text-lg">Associated With</div>
             <div className="flex gap-4 mt-4">
               {[
                 "/associations/taan.avif",

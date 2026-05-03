@@ -37,7 +37,7 @@ export default async function ExplorePage({
 
   return (
     <div className="flex flex-col gap-4 items-start justify-center p-4 container mask-auto mx-auto">
-      <h1 className="font-bold text-2xl my-4">Explore Trips</h1>
+      <h1 className="font-bold text-xl md:text-2xl my-4">Explore Trips</h1>
 
       <form method="GET" className="relative flex gap-1 items-center max-w-6xl">
         <Input
@@ -61,7 +61,7 @@ export default async function ExplorePage({
       ) : (
         <div className="flex flex-col items-center justify-center w-full py-16 gap-2 text-center">
           <LucideSearch className="w-10 h-10 text-muted-foreground" />
-          <p className="text-lg font-medium">No trips found</p>
+          <p className="text-base md:text-lg font-medium">No trips found</p>
           {search && (
             <p className="text-muted-foreground">
               No results for <span className="font-semibold">{search}</span>.

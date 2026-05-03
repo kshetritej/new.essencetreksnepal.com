@@ -37,7 +37,7 @@ export default async function Testimonials() {
         </div>
         <div
           className={cn(
-            "text-xl md:text-xl font-semibold  text-center",
+            "text-base md:text-xl font-semibold  text-center",
             satisfy.className,
           )}
         >

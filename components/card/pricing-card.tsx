@@ -17,16 +17,18 @@ export default function PricingCardSidebar({
   title: string;
 }) {
   return (
-    <Card className="sticky top-16 border border-primary/60 rounded-sm">
+    <Card className="sticky top-32 border border-primary/60 rounded-sm">
       <CardContent className="">
         <div className="space-y-6">
-          <p className="font-bold text-xl">{title}</p>
+          <p className="font-bold text-base md:text-xl">{title}</p>
           <div>
             <p className="text-sm font-medium text-muted-foreground mb-2">
               PRICE PER PERSON
             </p>
             <div className="flex items-baseline gap-2">
-              <span className="text-3xl font-bold text-primary">${price}</span>
+              <span className="text-2xl md:text-3xl font-bold text-primary">
+                ${price}
+              </span>
               {/*<span className="text-xl text-muted-foreground line-through">
                 ${maxPrice}
               </span>*/}

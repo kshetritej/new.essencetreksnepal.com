@@ -12,7 +12,7 @@ export default function NotFound() {
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
           Page Not Found
         </h2>
-        <p className="text-lg text-gray-600 mb-8 max-w-md mx-auto">
+        <p className="text-base md:text-lg text-gray-600 mb-8 max-w-md mx-auto">
           Looks like this trek got lost in the mountains! The page you&apos;re looking for doesn&apos;t exist or has been moved.
         </p>
         
@@ -33,7 +33,7 @@ export default function NotFound() {
       </div>
 
       <div className="mt-16 bg-muted rounded-xl p-8 max-w-lg text-center">
-        <h3 className="font-semibold text-lg mb-2">Need help planning your trek?</h3>
+        <h3 className="font-semibold text-base md:text-lg mb-2">Need help planning your trek?</h3>
         <p className="text-gray-600 mb-4">
           Our expert team is ready to help you find the perfect adventure.
         </p>

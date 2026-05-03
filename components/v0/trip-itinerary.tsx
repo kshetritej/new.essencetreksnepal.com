@@ -13,7 +13,6 @@ import {
   LucideCircle,
   LucideClock,
   LucideHandPlatter,
-  LucideMoveRight,
   LucideRulerDimensionLine,
   LucideTent,
 } from "lucide-react";
@@ -24,7 +23,7 @@ interface TripItineraryProps {
 
 export function TripItinerary({ trip }: TripItineraryProps) {
   return (
-    <div className="space-y-8 text-justify">
+    <div className="space-y-8 text-left">
       <div className="space-y-4">
         <div
           className="mt-4"
@@ -54,9 +53,7 @@ export function TripItinerary({ trip }: TripItineraryProps) {
           <LucideBookText className="size-8 text-primary" /> Detailed Itinerary
         </h2>
         <Accordion
-          type="single"
-          collapsible
-          defaultValue="0"
+          type="multiple"
           className="border-l-2 border-dashed border-primary px-4 py-0 my-0"
         >
           <div className="flex flex-col">
@@ -68,21 +65,21 @@ export function TripItinerary({ trip }: TripItineraryProps) {
               >
                 <LucideCircle className="absolute top-5.5 -ml-6.5  size-4 fill-white stroke-primary py-0! my-0!" />
                 <AccordionTrigger
-                  className="content-body font-bold text-xl cursor-pointer flex items-center justify-between prose-h3:p-0 prose-h3:m-0  hover:no-underline border-b rounded-none
+                  className="content-body font-bold text-base md:text-xl cursor-pointer flex items-center justify-between prose-h3:p-0 prose-h3:m-0  hover:no-underline border-b rounded-none
 
                   "
                 >
                   <h3 className="flex items-center gap-4">{day.title}</h3>
                 </AccordionTrigger>
                 <AccordionContent
-                  className="text-xl pt-4
+                  className="text-base md:text-xl pt-4
                   prose-base leading-loose
                   prose-headings:text-gray-900 prose-headings:font-bold
-                  prose-h1:text-3xl
-                  prose-h2:text-3xl  prose-h2:font-bold prose-h2:text-primary
-                  prose-h3:text-xl
-                  prose-h4:text-lg
-                  prose-p:leading-normal prose-p:text-xl
+                  prose-h1:text-2xl md:prose-h1:text-3xl
+                  prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:font-bold prose-h2:text-primary
+                  prose-h3:text-lg md:prose-h3:text-xl
+                  prose-h4:text-base md:prose-h4:text-lg
+                  prose-p:leading-normal prose-p:text-base md:prose-p:text-xl
                   prose-a:text-primary prose-a:no-underline hover:prose-a:text-primary hover:prose-a:underline
                  prose-strong:text-black prose-strong:font-bold
                   prose-ul:my-2 prose-ol:my-2
@@ -92,7 +89,9 @@ export function TripItinerary({ trip }: TripItineraryProps) {
                   prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm
                   prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:rounded-lg prose-pre:p-4
                   prose-ul:list-none
-                  prose-li:relative prose-li:pl-8 prose-li:text-xl
+                  prose-ol:list-none
+                  prose-ol:before:content-none
+                  prose-li:relative prose-li:pl-8 prose-li:text-base md:prose-li:text-xl
                   prose-li:before:absolute
                   prose-li:before:left-0
                   prose-li:before:top-[0.45em]
@@ -118,58 +117,48 @@ export function TripItinerary({ trip }: TripItineraryProps) {
                     day?.descent ||
                     day?.distance ||
                     (day?.meals && day.meals?.length > 0)) && (
-                    <div className="grid sm:grid-cols-2 gap-1 bg-primary/20 p-2 rounded-xs space-y-1.5 my-4">
+                    <div className="grid md:grid-cols-2 items-start gap-4 p-2 rounded-xs space-y-1.5 my-4 relative">
                       {day?.duration && (
                         <div className="flex gap-1 items-center">
-                          <LucideClock />{" "}
-                          <span className="font-medium">Duration:</span>
+                          <LucideClock className="h-6 w-6 shrink-0" />
                           {day.duration}
                         </div>
                       )}
                       {day?.distance && (
-                        <div className="flex gap-1 items-center">
-                          <LucideRulerDimensionLine />{" "}
-                          <span className="font-medium">Distance:</span>
-                          {day.distance}
+                        <div className="flex gap-1 items-start">
+                          <LucideRulerDimensionLine
+                            className={"mt-2 h-6 w-6 shrink-0"}
+                          />
+                          Distance: {day.distance}
                         </div>
                       )}
                       {day?.ascent && (
-                        <div className="flex gap-1 items-center">
-                          <LucideChevronUp />{" "}
-                          <div className="flex items-start gap-1">
-                            <span className="font-medium">Ascent:</span>
-                            {day.ascent}
+                        <div className="flex gap-1 items-start">
+                          <LucideChevronUp className="text-green-500 mt-2 h-6 w-6 shrink-0" />
+                          <div className="flex items-start  gap-1">
+                            Ascent: {day.ascent}
                           </div>
                         </div>
                       )}
                       {day?.descent && (
                         <div className="flex gap-1 items-center">
-                          <LucideChevronDown />{" "}
-                          <span className="font-medium">Descent:</span>{" "}
-                          {day.descent}
+                          <LucideChevronDown className="text-red-500 h-6 w-6 shrink-0" />
+                          Descent: {day.descent}
                         </div>
                       )}
                       {day.accommodations && day.accommodations?.length > 0 && (
                         <div className="flex flex-col items-start gap-1">
-                          <div className="font-medium gap-1 flex items-center">
-                            <LucideTent />
-                            Accommodations:
-                          </div>
-                          <div className="flex gap-1 items-center">
-                            <LucideMoveRight />
-                            {day.accommodations.join(", ")}
+                          <div className="gap-1 flex items-start">
+                            <LucideTent className="mt-2 w-6 h-6 shrink-0" />
+                            Accommodations: {day.accommodations.join(", ")}
                           </div>
                         </div>
                       )}
                       {day.meals && day.meals?.length > 0 && (
                         <div className="flex flex-col items-start gap-1">
-                          <div className="font-medium gap-1 flex items-center">
-                            <LucideHandPlatter />
-                            Meals:
-                          </div>
-                          <div className="flex gap-1 items-center">
-                            <LucideMoveRight />
-                            {day.meals.join(", ")}
+                          <div className="gap-1 flex items-start">
+                            <LucideHandPlatter className="mt-1 w-6 h-6 shrink-0" />
+                            Meals: {day.meals.join(", ")}
                           </div>
                         </div>
                       )}

@@ -86,10 +86,10 @@ const OldHeroSection = () => {
             className="flex flex-col sm:flex-row gap-4 "
           >
             <Link href="/booking">
-              <Button>Start Your Adventure</Button>
+              <Button size={"lg"}>Start Your Adventure</Button>
             </Link>
             <Link href="/contact">
-              <Button variant={"outline"} className="bg-transparent">
+              <Button size={"lg"} variant={"secondary"}>
                 Contact Us
               </Button>
             </Link>

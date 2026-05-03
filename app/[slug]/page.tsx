@@ -39,7 +39,6 @@ export async function generateMetadata({
   }
 
   const resJSON = await response.json();
-  console.log("Response: ", resJSON);
   const blog = resJSON.infoPage;
 
   return {
@@ -102,11 +101,11 @@ export default async function BlogSingle({
         className="pt-8 md:pt-4 p-2
         prose-base leading leading-relaxed
         prose-headings:text-gray-900 prose-headings:font-bold
-        prose-h1:text-3xl
-        prose-h2:text-3xl   prose-h2:font-bold
-        prose-h3:text-xl
-        prose-h4:text-lg
-        prose-p:leading-relaxed prose-p:mb-4 prose-p:mt-0 prose-p:text-xl
+        prose-h1:text-xl md:prose-h1:text-3xl
+        prose-h2:text-xl md:prose-h2:text-3xl   prose-h2:font-bold
+        prose-h3:text-base md:prose-h3:text-xl
+        prose-h4:text-sm md:prose-h4:text-lg
+        prose-p:leading-relaxed prose-p:mb-4 prose-p:mt-0 prose-p:text-base md:prose-p:text-xl
         prose-a:text-primary prose-a:no-underline hover:prose-a:text-primary hover:prose-a:underline
         prose-strong:text-black prose-strong:font-bold
         prose-ul:my-2 prose-ol:my-2
@@ -116,7 +115,7 @@ export default async function BlogSingle({
         prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm
         prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:rounded-lg prose-pre:p-4
         prose-ul:list-none
-        prose-li:relative prose-li:pl-8 prose-li:text-xl
+        prose-li:relative prose-li:pl-8 prose-li:text-base md:prose-li:text-xl
         prose-li:before:absolute
         prose-li:before:left-0
         prose-li:before:top-[0.45em]

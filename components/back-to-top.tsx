@@ -1,20 +1,27 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function BackToTop() {
+  const pathname = usePathname();
   const [show, setShow] = useState(false);
 
   useEffect(() => {
+    if (pathname.startsWith("/package/")) return;
+
     const handleScroll = () => {
       setShow(window.scrollY > 500);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
+
+  if (pathname.startsWith("/package/")) return null;
+
   return (
     show && (
       <Button

@@ -60,7 +60,7 @@ function DesktopMenuItem({ item }: { item: MenuItem }) {
                     ) : (
                       <Link
                         href={child.url || "#"}
-                        className="text-lg font-semibold text-gray-900 hover:text-primary hover:underline transition-colors block pb-2"
+                        className="text-base md:text-lg font-semibold text-gray-900 hover:text-primary hover:underline transition-colors block pb-2"
                       >
                         {child.label}
                       </Link>
@@ -96,13 +96,38 @@ interface MenuControllerProps {
 
 export function MenuController({ items }: MenuControllerProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const pathname = usePathname();
+  const isPackagePage = pathname?.startsWith("/package/") ?? false;
+
+  useEffect(() => {
+    if (!isPackagePage) return;
+
+    let lastScrollY = window.scrollY;
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isPackagePage]);
 
   const handleNavClick = () => {
     setIsMobileMenuOpen(false);
   };
 
   return (
-    <nav>
+    <nav
+      className={`${isPackagePage ? "fixed w-full top-0 z-[60]" : "sticky top-0 z-50"} bg-white transition-transform duration-300 ${
+        isPackagePage && !isVisible ? "-translate-y-full" : ""
+      }`}
+    >
       {/* Top bar */}
       <div className="hidden  bg-white px-4 md:px-8 py-3 md:flex flex-wrap justify-center md:justify-end items-center gap-4 md:gap-8 text-xs md:text-sm">
         <div className="container px-4 md:px-12 mx-auto flex items-end gap-4 justify-end">

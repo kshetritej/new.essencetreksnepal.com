@@ -8,6 +8,7 @@ import Footer from "@/components/footer";
 import Cta from "@/components/cta";
 import BackToTop from "@/components/back-to-top";
 import FloatingWhatsAppIcon from "@/components/floating-whatsapp";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 export const metadata: Metadata = {
   title: "Essence Treks",
@@ -29,14 +30,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${outfit.className} antialiased`}>
-        <Navigation />
-        {children}
-        <Analytics />
-        <Cta />
-        <BackToTop />
-        <Footer />
-        {/*<ChatWidget />*/}
-        <FloatingWhatsAppIcon />
+        <TooltipProvider>
+          <Navigation />
+          {children}
+          <Analytics />
+          <Cta />
+          <BackToTop />
+          <Footer />
+          {/*<ChatWidget />*/}
+          <FloatingWhatsAppIcon />
+        </TooltipProvider>
       </body>
     </html>
   );

@@ -16,7 +16,7 @@ export default async function FeaturedSections({
           <div className="flex flex-col items-start justify-start gap-4">
             <div
               className={cn(
-                "md:max-w-3xl text-xl md:text-xl font-semibold text-primary text-shadow-2xs text-center",
+                "md:max-w-3xl text-base md:text-xl font-semibold text-primary text-shadow-2xs text-center",
                 satisfy.className,
               )}
             >
@@ -26,7 +26,7 @@ export default async function FeaturedSections({
               {tag.name.split("::")[0] || tag.name}
             </div>
             <div
-              className="text-xl max-w-5xl"
+              className="text-base md:text-xl max-w-5xl"
               dangerouslySetInnerHTML={{
                 __html: decodeHtmlEntities(tag.description),
               }}
